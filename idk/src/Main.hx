@@ -21,6 +21,7 @@ import box2D.dynamics.B2World;
 class Main extends Sprite 
 {
 	var inited:Bool;
+	var game:Game;
 
 	/* ENTRY POINT */
 	
@@ -34,6 +35,9 @@ class Main extends Sprite
 	{
 		if (inited) return;
 		inited = true;
+		
+		game = new Game();
+		this.addChild(game);
 
 		// (your code here)
 		
@@ -69,5 +73,10 @@ class Main extends Sprite
 		Lib.current.stage.align = flash.display.StageAlign.TOP_LEFT;
 		Lib.current.stage.scaleMode = flash.display.StageScaleMode.NO_SCALE;
 		Lib.current.addChild(new Main());
+	}
+	
+	public function action(e)
+	{
+		game.act();
 	}
 }
