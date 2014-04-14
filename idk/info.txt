@@ -1,0 +1,22 @@
+Must do
+launcher
+side scrolling- vertical + horizontal
+launcher power adjusting + angle
+
+Should do
+things to bounce off of
+money system for upgrading
+height and distance counter
+
+Would do if i Could do
+upgrades
+
+
+money system
+$ = (maxheight * 0.75) * distance
+
+upgrades
+stronger launcher
+extra launches
+more things to bounce off of
+money multiplier
