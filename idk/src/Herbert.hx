@@ -45,8 +45,7 @@ class Herbert extends Sprite
 		fixtureDefinition.density = 1;
 		fixtureDefinition.friction = 1;
 		
-		body = Game.World.createBody (bodyDefinition);
-		body = Game.World.createBody (bodyDefinition);
+		body = Game.World.createBody(bodyDefinition);
 		body.createFixture (fixtureDefinition);
 	}
 	

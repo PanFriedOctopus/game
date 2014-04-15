@@ -22,7 +22,7 @@ class Game extends Sprite
 {
 
 	public static var PHYSICS_SCALE:Float = 1.0 / 30;
-	public var World:B2World;
+	public static var World:B2World;
 	public var PhysicsDebug:Sprite;
 	public var herbert:Herbert;
 	public static var game;
@@ -44,6 +44,7 @@ class Game extends Sprite
 		createBox(0, 400, 200, 5, false);
 		
 		herbert = new Herbert(0, 200);
+		this.addChild(herbert);
 		
 	}
 	
