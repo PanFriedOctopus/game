@@ -1,5 +1,7 @@
 package ;
 
+import flash.events.Event;
+import flash.events.MouseEvent;
 import Math;
 import flash.display.Bitmap;
 import flash.display.BitmapData;
@@ -27,8 +29,10 @@ class Herbert extends Sprite
 	{
 		super();
 		var s = new Sprite();
-		var b = new Bitmap(Assets.getBitmapData("img/box.png"));
-		s.addChild(b);
+		//var b = new Bitmap(Assets.getBitmapData("img/box.png"));
+		//b.width = 100;
+		//b.height = 100;
+		//s.addChild(b);
 		s.x = -WIDTH / 2;
 		s.y = -WIDTH / 2;
 		this.addChild(s);
@@ -47,6 +51,21 @@ class Herbert extends Sprite
 		
 		body = Game.World.createBody(bodyDefinition);
 		body.createFixture (fixtureDefinition);
+	}
+	
+	public function fire(e : MouseEvent)
+	{
+		trace ("pewpew");
+		body.setAwake(true);
+		body.setLinearVelocity(new B2Vec2( 10, -8));	
+	}
+	
+	
+	public function act()
+	{
+		this.x = body.getPosition().x / Game.PHYSICS_SCALE;
+		this.y = body.getPosition().y / Game.PHYSICS_SCALE;
+		this.rotation = body.getAngle() * 180 / Math.PI;
 	}
 	
 }

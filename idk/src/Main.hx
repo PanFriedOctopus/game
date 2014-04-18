@@ -46,6 +46,8 @@ class Main extends Sprite
 		
 		// Assets:
 		// nme.Assets.getBitmapData("img/assetname.jpg");
+		
+		addEventListener (Event.ENTER_FRAME, action);
 	}
 
 	/* SETUP */
@@ -54,6 +56,7 @@ class Main extends Sprite
 	{
 		super();	
 		addEventListener(Event.ADDED_TO_STAGE, added);
+		
 	}
 
 	function added(e) 
@@ -78,5 +81,7 @@ class Main extends Sprite
 	public function action(e)
 	{
 		game.act();
+		this.x = -Game.game.herbert.x + 75;
+		this.y = -Game.game.herbert.y + 200;
 	}
 }
