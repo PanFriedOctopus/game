@@ -1,5 +1,6 @@
 package ;
 
+import haxe.rtti.CType.Platforms;
 import Math;
 import flash.events.Event;
 import flash.events.MouseEvent;
@@ -31,6 +32,7 @@ class Game extends Sprite
 	public static var game;
 	public static var powercount:Int;
 	var countup:Bool;
+	public var platform:Platform;
 	
 	
 	public function new() 
@@ -47,7 +49,9 @@ class Game extends Sprite
 		debugDraw.setFlags (B2DebugDraw.e_centerOfMassBit + B2DebugDraw.e_shapeBit+ B2DebugDraw.e_aabbBit );// + B2DebugDraw.e_aabbBit);
 		World.setDebugDraw (debugDraw);
 		
-		createBox(0, 400, 4000, 5, false);
+		var platform = new Platform();
+		platform.generate(0, 250, 1500, 10, false);
+		this.addChild(platform);
 		
 		herbert = new Herbert(300, 200);
 		this.addChild(herbert);
