@@ -1,9 +1,14 @@
 package ;
 
-import flash.display.Sprite;
-import flash.events.Event;
 import flash.Lib;
 import flash.events.KeyboardEvent;
+import flash.events.Event;
+import flash.events.MouseEvent;
+import Math;
+import flash.display.Bitmap;
+import flash.display.BitmapData;
+import flash.display.Sprite;
+import openfl.Assets;
 import box2D.collision.shapes.B2CircleShape;
 import box2D.collision.shapes.B2PolygonShape;
 import box2D.common.math.B2Vec2;
@@ -22,6 +27,8 @@ class Main extends Sprite
 {
 	var inited:Bool;
 	var game:Game;
+	var mainmenu:Sprite;
+	var playbutton:Sprite;
 
 	/* ENTRY POINT */
 	
@@ -36,6 +43,19 @@ class Main extends Sprite
 		if (inited) return;
 		inited = true;
 		
+		mainmenu = new Sprite();
+		var menu = new Bitmap(Assets.getBitmapData("img/menu.png"));
+		mainmenu.addChild(menu);
+		
+		playbutton = new Sprite();
+		var playButton = new Bitmap(Assets.getBitmapData("img/playbutton.png"));
+		playbutton.addChild(playButton);
+		mainmenu.addChild(playbutton);
+		playbutton.x = 450;
+		playbutton.y = 350;
+		
+		//this.addChild(mainmenu);
+		
 		game = new Game();
 		this.addChild(game);
 
@@ -48,8 +68,13 @@ class Main extends Sprite
 		// nme.Assets.getBitmapData("img/assetname.jpg");
 		
 		addEventListener (Event.ENTER_FRAME, action);
+		playbutton.addEventListener(MouseEvent.MOUSE_DOWN, playGame);
 	}
 
+	public function playGame(e:MouseEvent) 
+	{
+		this.addChild(game);
+	}
 	/* SETUP */
 
 	public function new() 

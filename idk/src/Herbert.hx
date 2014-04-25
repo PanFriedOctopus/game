@@ -24,6 +24,10 @@ class Herbert extends Sprite
 {
 	var WIDTH = 100;
 	var body:B2Body;
+	public var count:Int;
+	var countup:Bool;
+	var that:Float;
+	var thing:Float;
 	
 	public function new(x:Int, y:Int) 
 	{
@@ -57,15 +61,34 @@ class Herbert extends Sprite
 	{
 		trace ("pewpew");
 		body.setAwake(true);
-		body.setLinearVelocity(new B2Vec2( 10, -8));	
+		body.setLinearVelocity(new B2Vec2( 10*Game.powercount, -8*Game.powercount));	
+		count++;
 	}
 	
+	public function launchbar(width)
+	{
+		//trace("AHHAHAHAHHHAHAHAHAHAHHAHHAHAHHAHAHAHHAHAHAHAHHAHAAHH");
+		this.graphics.beginFill(0xb30303);
+		this.graphics.drawRoundRect(200, 100, width, 5, 4);
+		//graphics.drawRoundRect(
+	}
 	
 	public function act()
 	{
+		var thing = this.x;
+		//this.graphics.clear();
+		//trace(count);
+		//this.launchbar(count);
 		this.x = body.getPosition().x / Game.PHYSICS_SCALE;
 		this.y = body.getPosition().y / Game.PHYSICS_SCALE;
 		this.rotation = body.getAngle() * 180 / Math.PI;
+		var that = this.x;
+		trace(thing - that);
+		//if (count < 0) countup = true;
+		//if (count > 100) countup = false;
+		//if (countup == true) count++;
+		//else count--;
+		//this.graphics.clear();
 	}
 	
 }

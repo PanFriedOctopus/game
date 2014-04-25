@@ -38,12 +38,24 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("img/box.png", __ASSET__img_box_png);
 		type.set ("img/box.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("img/playbutton.png", __ASSET__img_playbutton_png);
+		type.set ("img/playbutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("img/scorebutton.png", __ASSET__img_scorebutton_png);
+		type.set ("img/scorebutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("img/menu.png", __ASSET__img_menu_png);
+		type.set ("img/menu.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		
 		
 		#elseif html5
 		
 		path.set ("img/box.png", "img/box.png");
 		type.set ("img/box.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("img/playbutton.png", "img/playbutton.png");
+		type.set ("img/playbutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("img/scorebutton.png", "img/scorebutton.png");
+		type.set ("img/scorebutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("img/menu.png", "img/menu.png");
+		type.set ("img/menu.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		
 		
 		#else
@@ -488,9 +500,15 @@ class DefaultAssetLibrary extends AssetLibrary {
 #elseif flash
 
 class __ASSET__img_box_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__img_playbutton_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__img_scorebutton_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__img_menu_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 
 
 #elseif html5
+
+
+
 
 
 

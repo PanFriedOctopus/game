@@ -29,6 +29,9 @@ class Game extends Sprite
 	public var PhysicsDebug:Sprite;
 	public var herbert:Herbert;
 	public static var game;
+	public static var powercount:Int;
+	var countup:Bool;
+	
 	
 	public function new() 
 	{
@@ -80,8 +83,24 @@ class Game extends Sprite
 		return body;
 	}
 	
+	public function launchbar(width)
+	{
+		//trace("AHHAHAHAHHHAHAHAHAHAHHAHHAHAHHAHAHAHHAHAHAHAHHAHAAHH");
+		this.graphics.beginFill(0xb30303);
+		this.graphics.drawRoundRect(400, 500, width, 5, 4);
+		//graphics.drawRoundRect(
+	}
+	
 	public function act()
 	{
+		this.graphics.clear();
+		//trace(powercount);
+		this.launchbar(powercount);
+		if (powercount < 0) countup = true;
+		if (powercount > 100) countup = false;
+		if (countup == true) powercount++;
+		else powercount--;
+		//this.graphics.clear();
 		herbert.act();
 		World.step(1 / Lib.current.stage.frameRate, 1, 1);
 		World.drawDebugData();
