@@ -41,7 +41,7 @@ class Game extends Sprite
 		game = this;
 		PhysicsDebug = new Sprite ();
 		addChild (PhysicsDebug);
-		World = new B2World(new B2Vec2 (0, 10.0), true);
+		World = new B2World(new B2Vec2 (0, 0), true);
 		
 		var debugDraw = new B2DebugDraw ();
 		debugDraw.setSprite (PhysicsDebug);
@@ -49,9 +49,10 @@ class Game extends Sprite
 		debugDraw.setFlags (B2DebugDraw.e_centerOfMassBit + B2DebugDraw.e_shapeBit+ B2DebugDraw.e_aabbBit );// + B2DebugDraw.e_aabbBit);
 		World.setDebugDraw (debugDraw);
 		
-		var platform = new Platform();
+		platform = new Platform();
 		platform.generate(0, 250, 1500, 10, false);
 		this.addChild(platform);
+		platform.y = platform.y - 7;
 		
 		herbert = new Herbert(300, 200);
 		this.addChild(herbert);
@@ -91,21 +92,27 @@ class Game extends Sprite
 	{
 		//trace("AHHAHAHAHHHAHAHAHAHAHHAHHAHAHHAHAHAHHAHAHAHAHHAHAAHH");
 		this.graphics.beginFill(0xb30303);
-		this.graphics.drawRoundRect(400, 500, width, 5, 4);
+		this.graphics.drawRoundRect(400, 300, width, 5, 4);
 		//graphics.drawRoundRect(
 	}
 	
 	public function act()
 	{
+		//World.destroyBody(B2Body(platform(body)));
+		platform.destroy();
 		this.graphics.clear();
 		//trace(powercount);
 		this.launchbar(powercount);
-		if (powercount < 0) countup = true;
+		if (powercount < 1) countup = true;
 		if (powercount > 100) countup = false;
 		if (countup == true) powercount++;
 		else powercount--;
-		//this.graphics.clear();
 		herbert.act();
+		//platform.act(herbert.x);
+		platform.generate(herbert.x, 250, 1500, 10, false);
+		this.addChild(platform);
+		platform.y = platform.y - 7;
+		
 		World.step(1 / Lib.current.stage.frameRate, 1, 1);
 		World.drawDebugData();
 	}

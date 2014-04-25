@@ -25,6 +25,7 @@ class Platform extends Sprite
 	var img:BitmapData;
 	var sprite:Sprite;
 	var tall:Int;
+	var body:B2Body;
 	public var wide:Int;
 
 	public function generate(x:Float, y:Float, width:Float, height:Float, dynamicBody:Bool):B2Body
@@ -49,8 +50,13 @@ class Platform extends Sprite
 		fixtureDefinition.density = 1;
 		fixtureDefinition.friction = 1;
 		
-		var body = Game.World.createBody (bodyDefinition);
+		body = Game.World.createBody (bodyDefinition);
 		body.createFixture (fixtureDefinition);
 		return body;
+	}
+	
+	public function destroy()
+	{
+		Game.World.destroyBody(body);
 	}
 }
