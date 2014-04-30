@@ -23,21 +23,25 @@ import box2D.dynamics.B2World;
 class Herbert extends Sprite
 {
 	var WIDTH = 100;
-	var body:B2Body;
+	public var body:B2Body;
 	public var count:Int;
 	var countup:Bool;
 	var that:Float;
 	var thing:Float;
+	public var cgx:Float=300;
+	public var cgy:Float = 5;
+	public var cga:Float = 3;
+	public var shotsfired:Int = 0;
 	
 	public function new(x:Int, y:Int) 
 	{
 		super();
 		var s = new Sprite();
-		//var b = new Bitmap(Assets.getBitmapData("img/box.png"));
+		var b = new Bitmap(Assets.getBitmapData("img/boxsheep.png"));
 		//b.width = 100;
 		//b.height = 100;
-		//s.addChild(b);
-		s.x = -WIDTH / 2;
+		s.addChild(b);
+		s.x = (-WIDTH / 2) -20;
 		s.y = -WIDTH / 2;
 		this.addChild(s);
 		this.x = x;
@@ -46,10 +50,12 @@ class Herbert extends Sprite
 		var bodyDefinition = new B2BodyDef ();
 		bodyDefinition.position.set (x * Game.PHYSICS_SCALE, y * Game.PHYSICS_SCALE);
 		bodyDefinition.type = B2Body.b2_dynamicBody;
+		//bodyDefinition.linearDamping = 0.99;
 		var polygon = new B2PolygonShape();
 		polygon.setAsBox ((WIDTH / 2) * Game.PHYSICS_SCALE, (WIDTH / 2) * Game.PHYSICS_SCALE);
 		var fixtureDefinition = new B2FixtureDef ();
 		fixtureDefinition.shape = polygon;
+		fixtureDefinition.restitution = .55;
 		fixtureDefinition.density = 1;
 		fixtureDefinition.friction = 1;
 		
@@ -59,36 +65,32 @@ class Herbert extends Sprite
 	
 	public function fire(e : MouseEvent)
 	{
-		trace ("pewpew");
-		body.setAwake(true);
-		body.setLinearVelocity(new B2Vec2( 10*Game.powercount, -8*Game.powercount));	
-		count++;
-	}
-	
-	public function launchbar(width)
-	{
-		//trace("AHHAHAHAHHHAHAHAHAHAHHAHHAHAHHAHAHAHHAHAHAHAHHAHAAHH");
-		this.graphics.beginFill(0xb30303);
-		this.graphics.drawRoundRect(200, 100, width, 5, 4);
-		//graphics.drawRoundRect(
-	}
+		if (shotsfired == 0)
+		{
+			trace ("pewpew");
+			body.setAwake(true);
+			body.setLinearVelocity(new B2Vec2( 5 * Game.powercount, -4 * Game.powercount));	
+			body.setAngularVelocity(2);
+			count++;
+		}
+		else
+		{
+			trace("nottoday");
+		}
+		shotsfired++;
+	}	
 	
 	public function act()
 	{
-		var thing = this.x;
-		//this.graphics.clear();
-		//trace(count);
-		//this.launchbar(count);
+		//trace("THE :" + this.x);
+		//trace("THEYEEJEEJJFJSDAJSLFKLSDJALFJ Y:" + this.y);
+		//var thing = this.x;
 		this.x = body.getPosition().x / Game.PHYSICS_SCALE;
 		this.y = body.getPosition().y / Game.PHYSICS_SCALE;
 		this.rotation = body.getAngle() * 180 / Math.PI;
-		var that = this.x;
-		trace(thing - that);
-		//if (count < 0) countup = true;
-		//if (count > 100) countup = false;
-		//if (countup == true) count++;
-		//else count--;
-		//this.graphics.clear();
+		//var that = this.x;
+		//trace(thing - that);
+		//body.applyForce(new B2Vec2(0, 10 * body.getMass()), body.getPosition());
 	}
 	
 }
