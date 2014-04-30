@@ -33,6 +33,7 @@ class Game extends Sprite
 	public static var powercount:Int;
 	var countup:Bool;
 	public var platform:Platform;
+	public var henchman:Henchmen;
 	
 	
 	public function new() 
@@ -49,6 +50,9 @@ class Game extends Sprite
 		debugDraw.setFlags (B2DebugDraw.e_centerOfMassBit + B2DebugDraw.e_shapeBit+ B2DebugDraw.e_aabbBit );// + B2DebugDraw.e_aabbBit);
 		World.setDebugDraw (debugDraw);
 		
+		henchman = new Henchmen();
+		henchman.generate(300, 300, 80, 100, false);
+		this.addChild(henchman);
 		platform = new Platform();
 		platform.generate(0, 250, 1500, 10, false);
 		this.addChild(platform);
@@ -92,7 +96,7 @@ class Game extends Sprite
 	{
 		//trace("AHHAHAHAHHHAHAHAHAHAHHAHHAHAHHAHAHAHHAHAHAHAHHAHAAHH");
 		this.graphics.beginFill(0xb30303);
-		this.graphics.drawRoundRect(400, 300, width, 5, 4);
+		this.graphics.drawRect(400, 300, width, 5);
 		//graphics.drawRoundRect(
 	}
 	
@@ -103,6 +107,9 @@ class Game extends Sprite
 		platform.destroy();
 		this.graphics.clear();
 		//trace(powercount);
+		this.graphics.beginFill(0xFAAF00);
+		this.graphics.drawRect(396, 300, 4, 5);
+		this.graphics.drawRect(500, 300, 4, 5);
 		this.launchbar(powercount);
 		if (powercount < 1) countup = true;
 		if (powercount > 100) countup = false;
