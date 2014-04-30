@@ -41,7 +41,7 @@ class Game extends Sprite
 		game = this;
 		PhysicsDebug = new Sprite ();
 		addChild (PhysicsDebug);
-		World = new B2World(new B2Vec2 (0, 0), true);
+		World = new B2World(new B2Vec2 (0, 10.0), true);
 		
 		var debugDraw = new B2DebugDraw ();
 		debugDraw.setSprite (PhysicsDebug);
@@ -98,6 +98,7 @@ class Game extends Sprite
 	
 	public function act()
 	{
+		World.step(1 / Lib.current.stage.frameRate, 10, 10);
 		//World.destroyBody(B2Body(platform(body)));
 		platform.destroy();
 		this.graphics.clear();
@@ -111,10 +112,12 @@ class Game extends Sprite
 		//platform.act(herbert.x);
 		platform.generate(herbert.x, 250, 1500, 10, false);
 		this.addChild(platform);
-		platform.y = platform.y - 7;
+		//platform.y = platform.y - 7;
 		
-		World.step(1 / Lib.current.stage.frameRate, 1, 1);
+		
+		//World.step(1 / Lib.current.stage.frameRate, 10, 10);
 		World.drawDebugData();
+		World.clearForces();
 	}
 	
 }

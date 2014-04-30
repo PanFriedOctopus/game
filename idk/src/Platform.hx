@@ -30,7 +30,16 @@ class Platform extends Sprite
 
 	public function generate(x:Float, y:Float, width:Float, height:Float, dynamicBody:Bool):B2Body
 	{
-		this.graphics.beginFill(0x56495f);
+		/*var s = new Sprite();
+		var b = new Bitmap(Assets.getBitmapData("img/box.png"));
+		s.width = width;
+		s.height = height;
+		s.x = x;
+		s.y = y;
+		s.addChild(b);*/
+		
+		
+		this.graphics.beginFill(0x008000);
 		this.graphics.drawRoundRect(x, y, width, height, 4);
 		
 		var bodyDefinition = new B2BodyDef ();
@@ -58,5 +67,12 @@ class Platform extends Sprite
 	public function destroy()
 	{
 		Game.World.destroyBody(body);
+	}
+	
+	public function act()
+	{
+		this.x = body.getPosition().x / Game.PHYSICS_SCALE;
+		this.y = body.getPosition().y / Game.PHYSICS_SCALE;
+		this.rotation = body.getAngle() * 180 / Math.PI;
 	}
 }

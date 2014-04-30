@@ -29,6 +29,7 @@ class Main extends Sprite
 	var game:Game;
 	var mainmenu:Sprite;
 	var playbutton:Sprite;
+	var playyet:Bool = false;
 
 	/* ENTRY POINT */
 	
@@ -50,9 +51,9 @@ class Main extends Sprite
 		playbutton = new Sprite();
 		var playButton = new Bitmap(Assets.getBitmapData("img/playbutton.png"));
 		playbutton.addChild(playButton);
-		mainmenu.addChild(playbutton);
 		playbutton.x = 450;
 		playbutton.y = 350;
+		mainmenu.addChild(playbutton);
 		
 		//this.addChild(mainmenu);
 		
@@ -68,12 +69,15 @@ class Main extends Sprite
 		// nme.Assets.getBitmapData("img/assetname.jpg");
 		
 		addEventListener (Event.ENTER_FRAME, action);
-		playbutton.addEventListener(MouseEvent.MOUSE_DOWN, playGame);
+		//playbutton.addEventListener(MouseEvent.MOUSE_DOWN, playGame);
 	}
 
 	public function playGame(e:MouseEvent) 
 	{
+		//addEventListener (Event.ENTER_FRAME, action);
+		game = new Game();
 		this.addChild(game);
+		playyet = true;
 	}
 	/* SETUP */
 
@@ -105,8 +109,9 @@ class Main extends Sprite
 	
 	public function action(e)
 	{
-		game.act();
-		this.x = -Game.game.herbert.x + 75;
-		this.y = -Game.game.herbert.y + 200;
+			//removeChild(mainmenu);
+			game.act();
+			this.x = -Game.game.herbert.x + 75;
+			this.y = -Game.game.herbert.y + 200;
 	}
 }
