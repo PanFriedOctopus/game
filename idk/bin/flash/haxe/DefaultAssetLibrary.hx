@@ -39,28 +39,20 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("img/box.png", __ASSET__img_box_png);
 		type.set ("img/box.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("img/menu.png", __ASSET__img_menu_png);
+		type.set ("img/menu.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("img/playbutton.png", __ASSET__img_playbutton_png);
 		type.set ("img/playbutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("img/scorebutton.png", __ASSET__img_scorebutton_png);
 		type.set ("img/scorebutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		className.set ("img/menu.png", __ASSET__img_menu_png);
-		type.set ("img/menu.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		
 		
 		#elseif html5
 		
-<<<<<<< HEAD
-		path.set ("img/box.png", "img/box.png");
-		type.set ("img/box.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		path.set ("img/playbutton.png", "img/playbutton.png");
-		type.set ("img/playbutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		path.set ("img/scorebutton.png", "img/scorebutton.png");
-		type.set ("img/scorebutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		path.set ("img/menu.png", "img/menu.png");
-		type.set ("img/menu.png", Reflect.field (AssetType, "image".toUpperCase ()));
-=======
 		addExternal("img/box.png", "image", "img/box.png");
->>>>>>> d92a63516c90a6c6de98bc58266a0ddf9885095d
+		addExternal("img/menu.png", "image", "img/menu.png");
+		addExternal("img/playbutton.png", "image", "img/playbutton.png");
+		addExternal("img/scorebutton.png", "image", "img/scorebutton.png");
 		
 		
 		#else
@@ -626,14 +618,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if pixi
 #elseif flash
 
-<<<<<<< HEAD
-class __ASSET__img_box_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
-class __ASSET__img_playbutton_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
-class __ASSET__img_scorebutton_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
-class __ASSET__img_menu_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
-=======
 @:keep class __ASSET__img_box_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
->>>>>>> d92a63516c90a6c6de98bc58266a0ddf9885095d
+@:keep class __ASSET__img_menu_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep class __ASSET__img_playbutton_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep class __ASSET__img_scorebutton_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 
 
 #elseif html5
@@ -641,11 +629,7 @@ class __ASSET__img_menu_png extends flash.display.BitmapData { public function n
 
 
 
-<<<<<<< HEAD
 
 
 
 #end
-=======
-#end
->>>>>>> d92a63516c90a6c6de98bc58266a0ddf9885095d
