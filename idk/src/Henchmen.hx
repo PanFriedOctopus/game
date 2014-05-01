@@ -20,17 +20,21 @@ import box2D.dynamics.B2World;
  * ...
  * @author ...
  */
-class Henchmen extends Sprite 
+class Henchmen extends Sprite
 {
 	var img:BitmapData;
 	var sprite:Sprite;
 	var tall:Int;
 	var body:B2Body;
 	public var wide:Int;
-
-	public function generate(x:Float, y:Float, width:Float, height:Float, dynamicBody:Bool):B2Body
+	
+	public function new(x:Int, y:Int) 
 	{
 		super();
+	}
+	
+	public function generate(x:Float, y:Float, width:Float, height:Float, dynamicBody:Bool):B2Body
+	{
 		var s = new Sprite();
 		var b = new Bitmap(Assets.getBitmapData("img/henchman.png"));
 		b.width = width;
