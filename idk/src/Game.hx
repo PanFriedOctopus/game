@@ -57,12 +57,15 @@ class Game extends Sprite
 		var enemySpawn:Timer = new haxe.Timer(4500);
 		enemySpawn.run = function():Void
 		{
-		if (henchman.x < herbert.x - 100)
-		{
-			henchmen.remove(henchman);
-			henchman.destroy();
-			trace("Hench-y go bye bye");
-		}
+			for (henchman in henchmen)
+			{
+				if (henchman.x < herbert.x - 100)
+				{
+					henchmen.remove(henchman);
+					henchman.destroy();
+					trace("Hench-y go bye bye");
+				}
+			}
 		rand = Math.random();
 		rand *= 100;
 		if ((rand > 97) || (counter > 4)) 
@@ -73,6 +76,7 @@ class Game extends Sprite
 			henchmen.push(henchman);
 			this.addChild(henchman);
 			trace("Made a baddie");
+			counter = 0;
 		}
 		else
 		counter++;
@@ -80,6 +84,8 @@ class Game extends Sprite
 		
 		henchman = new Henchmen(500, 0, 100, 150, false);
 		this.addChild(henchman);
+		henchman.destroy();
+		this.removeChild(henchman);
 		platform = new Platform();
 		platform.generate(0, 250, 1500, 10, false);
 		this.addChild(platform);
@@ -133,7 +139,6 @@ class Game extends Sprite
 		//World.destroyBody(B2Body(platform(body)));
 		this.graphics.clear();
 		platform.destroy();
-		//trace(powercount);
 		this.graphics.beginFill(0xFAAF00);
 		this.graphics.drawRect(396, 300, 4, 5);
 		this.graphics.drawRect(500, 300, 4, 5);
