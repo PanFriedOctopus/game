@@ -1,5 +1,4 @@
 package;
-
 import flash.events.Event;
 import flash.events.MouseEvent;
 import Math;
@@ -16,53 +15,51 @@ import box2D.dynamics.B2DebugDraw;
 import box2D.dynamics.B2FixtureDef;
 import box2D.dynamics.B2World;
 
+
 /**
  * ...
  * @author ...
  */
-class Platform extends Sprite 
+class Henchmen extends Sprite
 {
 	var img:BitmapData;
 	var sprite:Sprite;
-	var tall:Int;
+	var s:Sprite;
+	var b:BitmapData;
 	var body:B2Body;
 	public var wide:Int;
-	
+	public var WIDTH:Float;
 
-	public function generate(x:Float, y:Float, width:Float, height:Float, dynamicBody:Bool):B2Body
+	
+	public function new(x:Float, y:Float, width:Float, height:Float, dynamicBody:Bool)
 	{
-		/*var s = new Sprite();
-		var b = new Bitmap(Assets.getBitmapData("img/box.png"));
-		s.width = width;
-		s.height = height;
-		s.x = x;
-		s.y = y;
-		s.addChild(b);*/
-		
-		
-		this.graphics.beginFill(0x008000);
-		this.graphics.drawRoundRect(x, y, width, height, 4);
+		WIDTH = width;
+		super();
+		var s = new Sprite();
+		var b = new Bitmap(Assets.getBitmapData("img/henchman.png"));
+		b.width = width + .5;
+		b.height = height;
+		s.addChild(b);
+		s.x = (-WIDTH / 2);
+		s.y = -height / 2;
+		this.addChild(s);
+		this.x = x;
+		this.y = y;
 		
 		var bodyDefinition = new B2BodyDef ();
 		bodyDefinition.position.set (x * Game.PHYSICS_SCALE, y * Game.PHYSICS_SCALE);
-		
-		if (dynamicBody) {
-			
-			bodyDefinition.type = B2Body.b2_dynamicBody;
-			
-		}
-		
+		bodyDefinition.type = B2Body.b2_dynamicBody;
+		//bodyDefinition.linearDamping = 0.99;
 		var polygon = new B2PolygonShape();
-		polygon.setAsBox ((width / 2) * Game.PHYSICS_SCALE, (height / 2) * Game.PHYSICS_SCALE);
-		
+		polygon.setAsBox ((WIDTH / 2) * Game.PHYSICS_SCALE, (height / 2) * Game.PHYSICS_SCALE);
 		var fixtureDefinition = new B2FixtureDef ();
 		fixtureDefinition.shape = polygon;
+		fixtureDefinition.restitution = 0;
 		fixtureDefinition.density = 1;
 		fixtureDefinition.friction = 1;
 		
-		body = Game.World.createBody (bodyDefinition);
+		body = Game.World.createBody(bodyDefinition);
 		body.createFixture (fixtureDefinition);
-		return body;
 	}
 	
 	public function destroy()
