@@ -27,6 +27,7 @@ class Platform extends Sprite
 	var tall:Int;
 	var body:B2Body;
 	public var wide:Int;
+	
 
 	public function generate(x:Float, y:Float, width:Float, height:Float, dynamicBody:Bool):B2Body
 	{
