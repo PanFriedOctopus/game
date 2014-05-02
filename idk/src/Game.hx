@@ -29,10 +29,19 @@ class Game extends Sprite
 	public static var World:B2World;
 	public var PhysicsDebug:Sprite;
 	public var herbert:Herbert;
+	public var mountains:Sprite;
+	public var sky:Sprite;
+	public var fence:Sprite;
+	public var fence2:Sprite;
+	public var fencebool:Bool;
+	public var fencecount:Int = 0;
+	public var sheepprev:Float;
 	public static var game;
 	public static var powercount:Int;
 	var countup:Bool;
+	public var background:Background;
 	public var platform:Platform;
+	
 	
 	
 	public function new() 
@@ -52,10 +61,42 @@ class Game extends Sprite
 		platform = new Platform();
 		platform.generate(0, 250, 1500, 10, false);
 		this.addChild(platform);
-		platform.y = platform.y - 7;
+		
+		sky = new Sprite();
+		var SKY = new Bitmap(Assets.getBitmapData("img/sky.png"));
+		sky.addChild(SKY);
+		//this.addChild(sky);
+		
+		/*mountains = new Sprite();
+		var MOUNTAINS = new Bitmap(Assets.getBitmapData("img/mountains.png"));
+		mountains.addChild(MOUNTAINS);
+		MOUNTAINS.x = 300;
+		MOUNTAINS.y = 200;
+		this.addChild(mountains);*/
+		
+		fencebool = false;
+		
+		fence = new Sprite();
+		fence2 = new Sprite();
+		var FENCE = new Bitmap(Assets.getBitmapData("img/fence.png"));
+		FENCE.width = 1600;
+		var FENCE2 = new Bitmap(Assets.getBitmapData("img/fence.png"));
+		FENCE2.width = 1600;
+		fence.addChild(FENCE);
+		fence2.addChild(FENCE2);
+		this.addChild(fence);
+		this.addChild(fence2);
+		fence.x = 0;
+		fence.y = -230;
+		fence2.x = 1600;
+		fence2.y = -230;
+		
 		
 		herbert = new Herbert(300, 200);
 		this.addChild(herbert);
+		sheepprev = herbert.x;
+		
+		
 		
 		Lib.current.stage.addEventListener(MouseEvent.MOUSE_DOWN, herbert.fire);
 		
@@ -99,6 +140,8 @@ class Game extends Sprite
 	public function act()
 	{
 		World.step(1 / Lib.current.stage.frameRate, 10, 10);
+		//sky.x = herbert.x;
+		//sky.y = herbert.y;
 		//World.destroyBody(B2Body(platform(body)));
 		platform.destroy();
 		this.graphics.clear();
@@ -113,6 +156,31 @@ class Game extends Sprite
 		platform.generate(herbert.x, 250, 1500, 10, false);
 		this.addChild(platform);
 		//platform.y = platform.y - 7;
+		
+		trace (herbert.y);
+		if (fencecount == 0)
+		{
+			//trace ("goodle");
+			var fencex = fence.x + 1600;
+			if (fencex - 25 <= herbert.x && fencex + 25 >= herbert.x)
+			{
+				//trace ("goodle");
+				fence.x = fencex + 1600;
+				fencecount = 1;
+			}
+		}
+		if (fencecount == 1)
+		{
+			
+			var fence2x = fence2.x + 1600;
+			if (fence2x - 25 <= herbert.x && fence2x + 25 >= herbert.x)
+			{
+				//trace ("GOOOOOOOOOOOOODLE");
+				fence2.x = fence2x + 1600;
+				fencecount = 0;
+			}
+		}
+		
 		
 		
 		//World.step(1 / Lib.current.stage.frameRate, 10, 10);

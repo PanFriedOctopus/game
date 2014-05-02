@@ -36,8 +36,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		#if flash
 		
-		className.set ("img/box.png", __ASSET__img_box_png);
-		type.set ("img/box.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("img/playbutton.png", __ASSET__img_playbutton_png);
 		type.set ("img/playbutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("img/scorebutton.png", __ASSET__img_scorebutton_png);
@@ -46,12 +44,18 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("img/menu.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("img/boxsheep.png", __ASSET__img_boxsheep_png);
 		type.set ("img/boxsheep.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("img/box.png", __ASSET__img_box_png);
+		type.set ("img/box.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("img/sky.png", __ASSET__img_sky_png);
+		type.set ("img/sky.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("img/mountains.png", __ASSET__img_mountains_png);
+		type.set ("img/mountains.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("img/fence.png", __ASSET__img_fence_png);
+		type.set ("img/fence.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		
 		
 		#elseif html5
 		
-		path.set ("img/box.png", "img/box.png");
-		type.set ("img/box.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("img/playbutton.png", "img/playbutton.png");
 		type.set ("img/playbutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("img/scorebutton.png", "img/scorebutton.png");
@@ -60,6 +64,14 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("img/menu.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("img/boxsheep.png", "img/boxsheep.png");
 		type.set ("img/boxsheep.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("img/box.png", "img/box.png");
+		type.set ("img/box.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("img/sky.png", "img/sky.png");
+		type.set ("img/sky.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("img/mountains.png", "img/mountains.png");
+		type.set ("img/mountains.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("img/fence.png", "img/fence.png");
+		type.set ("img/fence.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		
 		
 		#else
@@ -503,14 +515,20 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if pixi
 #elseif flash
 
-class __ASSET__img_box_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__img_playbutton_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__img_scorebutton_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__img_menu_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__img_boxsheep_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__img_box_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__img_sky_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__img_mountains_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__img_fence_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 
 
 #elseif html5
+
+
+
 
 
 
