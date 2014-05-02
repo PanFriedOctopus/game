@@ -51,7 +51,7 @@ class Game extends Sprite
 		World.setDebugDraw (debugDraw);
 		
 		henchman = new Henchmen();
-		henchman.generate(300, 300, 80, 100, false);
+		henchman.generate(300, 300);
 		this.addChild(henchman);
 		platform = new Platform();
 		platform.generate(0, 250, 1500, 10, false);

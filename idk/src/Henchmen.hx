@@ -24,45 +24,35 @@ class Henchmen extends Sprite
 {
 	var img:BitmapData;
 	var sprite:Sprite;
-	var tall:Int;
+	var s:Sprite;
+	var b:BitmapData;
 	var body:B2Body;
 	public var wide:Int;
+	var WIDTH = 80;
 
-	public function generate(x:Float, y:Float, width:Float, height:Float, dynamicBody:Bool):B2Body
+	public function generate(x:Int, y:Int) 
 	{
 		super();
 		var s = new Sprite();
 		var b = new Bitmap(Assets.getBitmapData("img/henchman.png"));
-		b.width = width;
-		b.height = height;
 		s.addChild(b);
 		this.addChild(s);
 		this.x = x;
 		this.y = y;
-		
-		this.graphics.beginFill(0x008000);
-		this.graphics.drawRoundRect(x, y, width, height, 4);
-		
 		var bodyDefinition = new B2BodyDef ();
 		bodyDefinition.position.set (x * Game.PHYSICS_SCALE, y * Game.PHYSICS_SCALE);
-		
-		if (dynamicBody) {
-			
-			bodyDefinition.type = B2Body.b2_dynamicBody;
-			
-		}
-		
+		bodyDefinition.type = B2Body.b2_dynamicBody;
+		//bodyDefinition.linearDamping = 0.99;
 		var polygon = new B2PolygonShape();
-		polygon.setAsBox ((width / 2) * Game.PHYSICS_SCALE, (height / 2) * Game.PHYSICS_SCALE);
-		
+		polygon.setAsBox ((WIDTH / 2) * Game.PHYSICS_SCALE, (WIDTH / 2) * Game.PHYSICS_SCALE);
 		var fixtureDefinition = new B2FixtureDef ();
 		fixtureDefinition.shape = polygon;
-		fixtureDefinition.density = 2;
+		fixtureDefinition.restitution = .55;
+		fixtureDefinition.density = 1;
 		fixtureDefinition.friction = 1;
 		
-		body = Game.World.createBody (bodyDefinition);
+		body = Game.World.createBody(bodyDefinition);
 		body.createFixture (fixtureDefinition);
-		return body;
 	}
 	
 	public function destroy()
