@@ -1,6 +1,7 @@
 package ;
 
 import haxe.rtti.CType.Platforms;
+import haxe.Timer;
 import Math;
 import flash.events.Event;
 import flash.events.MouseEvent;
@@ -33,7 +34,10 @@ class Game extends Sprite
 	public static var powercount:Int;
 	var countup:Bool;
 	public var platform:Platform;
+	public var henchmen:List<Henchmen>;
 	public var henchman:Henchmen;
+	public var rand:Float;
+	var counter:Int = 0;
 	
 	
 	public function new() 
@@ -49,14 +53,43 @@ class Game extends Sprite
 		debugDraw.setDrawScale (1 / PHYSICS_SCALE);
 		debugDraw.setFlags (B2DebugDraw.e_centerOfMassBit + B2DebugDraw.e_shapeBit+ B2DebugDraw.e_aabbBit );// + B2DebugDraw.e_aabbBit);
 		World.setDebugDraw (debugDraw);
+
+		var enemySpawn:Timer = new haxe.Timer(4500);
+		enemySpawn.run = function():Void
+		{
+			for (henchman in henchmen)
+			{
+				if (henchman.x < herbert.x - 100)
+				{
+					henchmen.remove(henchman);
+					henchman.destroy();
+					trace("Hench-y go bye bye");
+				}
+			}
+		rand = Math.random();
+		rand *= 100;
+		if ((rand > 97) || (counter > 4)) 
+		{
+			var baddiesize = Math.random();
+			baddiesize *= 80;
+			henchman = new Henchmen(herbert.x + 1000, 0, baddiesize + 20, baddiesize * 2, true);
+			henchmen.push(henchman);
+			this.addChild(henchman);
+			trace("Made a baddie");
+			counter = 0;
+		}
+		else
+		counter++;
+		};
 		
-		henchman = new Henchmen();
-		henchman.generate(300, 300);
+		henchman = new Henchmen(500, 0, 100, 150, false);
 		this.addChild(henchman);
+		henchman.destroy();
+		this.removeChild(henchman);
 		platform = new Platform();
 		platform.generate(0, 250, 1500, 10, false);
 		this.addChild(platform);
-		platform.y = platform.y - 7;
+		//platform.y = platform.y - 7;
 		
 		herbert = new Herbert(300, 200);
 		this.addChild(herbert);
@@ -104,9 +137,8 @@ class Game extends Sprite
 	{
 		World.step(1 / Lib.current.stage.frameRate, 10, 10);
 		//World.destroyBody(B2Body(platform(body)));
-		platform.destroy();
 		this.graphics.clear();
-		//trace(powercount);
+		platform.destroy();
 		this.graphics.beginFill(0xFAAF00);
 		this.graphics.drawRect(396, 300, 4, 5);
 		this.graphics.drawRect(500, 300, 4, 5);
@@ -116,8 +148,9 @@ class Game extends Sprite
 		if (countup == true) powercount++;
 		else powercount--;
 		herbert.act();
+		henchman.act();
 		//platform.act(herbert.x);
-		platform.generate(herbert.x, 250, 1500, 10, false);
+		platform.generate(herbert.x, 250, 2000, 10, false);
 		this.addChild(platform);
 		//platform.y = platform.y - 7;
 		
