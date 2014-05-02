@@ -54,7 +54,7 @@ class Game extends Sprite
 		debugDraw.setFlags (B2DebugDraw.e_centerOfMassBit + B2DebugDraw.e_shapeBit+ B2DebugDraw.e_aabbBit );// + B2DebugDraw.e_aabbBit);
 		World.setDebugDraw (debugDraw);
 
-		var enemySpawn:Timer = new haxe.Timer(4500);
+		/*var enemySpawn:Timer = new haxe.Timer(4500);
 		enemySpawn.run = function():Void
 		{
 			for (henchman in henchmen)
@@ -80,7 +80,7 @@ class Game extends Sprite
 		}
 		else
 		counter++;
-		};
+		};*/
 		
 		henchman = new Henchmen(500, 0, 100, 150, false);
 		this.addChild(henchman);
@@ -148,7 +148,7 @@ class Game extends Sprite
 		if (countup == true) powercount++;
 		else powercount--;
 		herbert.act();
-		henchman.act();
+		//henchman.act();
 		//platform.act(herbert.x);
 		platform.generate(herbert.x, 250, 2000, 10, false);
 		this.addChild(platform);
