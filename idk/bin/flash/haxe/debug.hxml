@@ -8,7 +8,7 @@
 -D web
 -swf-version 11.2
 -swf bin/flash/bin/idk.swf
--swf-header 800:480:60:FFFFFF
+-swf-header 800:480:60:C9E8F3
 -cp bin/flash/haxe
 #--remap nme:flash
 #--no-inline

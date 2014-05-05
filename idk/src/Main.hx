@@ -56,6 +56,7 @@ class Main extends Sprite
 		mainmenu.addChild(playbutton);
 		
 		//this.addChild(mainmenu);
+		this.y = 300;
 		
 		game = new Game();
 		this.addChild(game);
@@ -109,9 +110,14 @@ class Main extends Sprite
 	
 	public function action(e)
 	{
-			//removeChild(mainmenu);
-			game.act();
-			this.x = -Game.game.herbert.x + 75;
-			this.y = -Game.game.herbert.y + 200;
+		//removeChild(mainmenu);
+		game.act();
+		this.x = -Game.game.herbert.x + 75;
+		if (game.herbert.y > -7500)
+		{
+			this.y = -Game.game.herbert.y + 300 * .75;
+		}
+		//this.y = 0;
+		
 	}
 }

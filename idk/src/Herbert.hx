@@ -67,7 +67,7 @@ class Herbert extends Sprite
 	{
 		if (shotsfired == 0)
 		{
-			trace ("pewpew");
+			//trace ("pewpew");
 			body.setAwake(true);
 			body.setLinearVelocity(new B2Vec2( 5 * Game.powercount, -4 * Game.powercount));	
 			body.setAngularVelocity(2);
@@ -75,7 +75,7 @@ class Herbert extends Sprite
 		}
 		else
 		{
-			trace("nottoday");
+			//trace("nottoday");
 		}
 		shotsfired++;
 	}	
