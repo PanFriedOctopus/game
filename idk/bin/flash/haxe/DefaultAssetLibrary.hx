@@ -54,6 +54,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("img/scorebutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("img/sky.png", __ASSET__img_sky_png);
 		type.set ("img/sky.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("audio/bongos.mp3", __ASSET__audio_bongos_mp3);
+		type.set ("audio/bongos.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
+		className.set ("audio/bongos.sng", __ASSET__audio_bongos_sng);
+		type.set ("audio/bongos.sng", Reflect.field (AssetType, "binary".toUpperCase ()));
+		className.set ("audio/bongos.wav", __ASSET__audio_bongos_wav);
+		type.set ("audio/bongos.wav", Reflect.field (AssetType, "sound".toUpperCase ()));
 		
 		
 		#elseif html5
@@ -76,6 +82,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("img/scorebutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("img/sky.png", "img/sky.png");
 		type.set ("img/sky.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("audio/bongos.mp3", "audio/bongos.mp3");
+		type.set ("audio/bongos.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
+		path.set ("audio/bongos.sng", "audio/bongos.sng");
+		type.set ("audio/bongos.sng", Reflect.field (AssetType, "binary".toUpperCase ()));
+		path.set ("audio/bongos.wav", "audio/bongos.wav");
+		type.set ("audio/bongos.wav", Reflect.field (AssetType, "sound".toUpperCase ()));
 		
 		
 		#else
@@ -528,9 +540,15 @@ class __ASSET__img_mountains_png extends flash.display.BitmapData { public funct
 class __ASSET__img_playbutton_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__img_scorebutton_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__img_sky_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__audio_bongos_mp3 extends flash.media.Sound { }
+class __ASSET__audio_bongos_sng extends flash.utils.ByteArray { }
+class __ASSET__audio_bongos_wav extends flash.media.Sound { }
 
 
 #elseif html5
+
+
+
 
 
 

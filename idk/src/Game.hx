@@ -142,7 +142,7 @@ class Game extends Sprite
 		sheepprev = herbert.x;
 		
 		sound = Assets.getSound("audio/bongos.mp3");
-		myChannel = sound.play(0,100);
+		myChannel = sound.play(0, 100);
 		transfor = new SoundTransform();
 		transfor.volume = 2.0;
 		
