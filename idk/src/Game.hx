@@ -60,10 +60,6 @@ class Game extends Sprite
 	{
 		super();
 		game = this;
-		sound = Assets.getSound("audio/bongos.mp3");
-		myChannel = sound.play(0,100);
-		transfor = new SoundTransform();
-		transfor.volume = 2.0;
 		
 		PhysicsDebug = new Sprite ();
 		addChild (PhysicsDebug);
@@ -145,7 +141,10 @@ class Game extends Sprite
 		this.addChild(herbert);
 		sheepprev = herbert.x;
 		
-		
+		sound = Assets.getSound("audio/bongos.mp3");
+		myChannel = sound.play(0,100);
+		transfor = new SoundTransform();
+		transfor.volume = 2.0;
 		
 		Lib.current.stage.addEventListener(MouseEvent.MOUSE_DOWN, herbert.fire);
 		
