@@ -1,5 +1,6 @@
 package ;
 
+import flash.media.SoundTransform;
 import haxe.rtti.CType.Platforms;
 import haxe.Timer;
 import Math;
@@ -10,6 +11,7 @@ import flash.display.BitmapData;
 import flash.display.Sprite;
 import flash.media.SoundChannel;
 import flash.media.Sound;
+import flash.media.SoundTransform;
 import openfl.Assets;
 import flash.Lib;
 import box2D.collision.shapes.B2CircleShape;
@@ -50,6 +52,7 @@ class Game extends Sprite
 	var counter:Int = 0;
 	var myChannel:SoundChannel;
 	var sound:Sound;
+	var transfor:SoundTransform;
 	
 	
 	
@@ -57,6 +60,11 @@ class Game extends Sprite
 	{
 		super();
 		game = this;
+		sound = Assets.getSound("audio/bongos.mp3");
+		myChannel = sound.play(0,100);
+		transfor = new SoundTransform();
+		transfor.volume = 2.0;
+		
 		PhysicsDebug = new Sprite ();
 		addChild (PhysicsDebug);
 		World = new B2World(new B2Vec2 (0, 10.0), true);
