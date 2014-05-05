@@ -24,7 +24,8 @@ class Henchmen extends Sprite
 {
 	var img:BitmapData;
 	var sprite:Sprite;
-	var tall:Int;
+	var s:Sprite;
+	var b:BitmapData;
 	var body:B2Body;
 	public var wide:Int;
 	public var WIDTH:Float;
