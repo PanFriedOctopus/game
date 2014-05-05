@@ -107,17 +107,17 @@ class Main extends Sprite
 		Lib.current.stage.scaleMode = flash.display.StageScaleMode.NO_SCALE;
 		Lib.current.addChild(new Main());
 	}
-	
 	public function action(e)
 	{
 		//removeChild(mainmenu);
 		game.act();
-		this.x = -Game.game.herbert.x + 75;
+		//trace (this.x);
+		this.x = -Game.game.herbert.x + 100;
 		if (game.herbert.y > -7500)
 		{
-			this.y = -Game.game.herbert.y + 300 * .75;
+			this.y = -Game.game.herbert.y+480* .75;
 		}
-		//this.y = 0;
+		this.y = 0;
 		
 	}
 }
