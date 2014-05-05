@@ -93,8 +93,6 @@ class Game extends Sprite
 		
 		henchman = new Henchmen(500, 0, 100, 150, false);
 		this.addChild(henchman);
-		henchman.destroy();
-		this.removeChild(henchman);
 		platform = new Platform();
 		platform.generate(0, 250, 1500, 10, false);
 		this.addChild(platform);
@@ -191,7 +189,7 @@ class Game extends Sprite
 		if (countup == true) powercount++;
 		else powercount--;
 		herbert.act();
-		//henchman.act();
+		henchman.act();
 		//platform.act(herbert.x);
 		platform.generate(herbert.x, 250, 2000, 10, false);
 		this.addChild(platform);
