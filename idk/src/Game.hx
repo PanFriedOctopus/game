@@ -224,22 +224,22 @@ class Game extends Sprite
 		if (fencecount == 0)
 		{
 			//trace ("goodle");
-			var fencex = fence.x + 1600;
+			var fencex = fence.x + 1650;
 			if (fencex - 25 <= herbert.x && fencex + 25 >= herbert.x)
 			{
-				trace ("goodle");
-				fence.x = fencex + 1600;
+				//trace ("goodle");
+				fence.x = (fencex - 50) + 1600;
 				fencecount = 1;
 			}
 		}
 		if (fencecount == 1)
 		{
 			
-			var fence2x = fence2.x + 1600;
+			var fence2x = fence2.x + 1650;
 			if (fence2x - 25 <= herbert.x && fence2x + 25 >= herbert.x)
 			{
-				trace ("GOOOOOOOOOOOOODLE");
-				fence2.x = fence2x + 1600;
+				//trace ("GOOOOOOOOOOOOODLE");
+				fence2.x = (fence2x - 50) + 1600;
 				fencecount = 0;
 			}
 		}
@@ -250,8 +250,8 @@ class Game extends Sprite
 			var mntx = MOUNTAINS.x + 1200;
 			if (mntx - 25 <= herbert.x && mntx + 25 >= herbert.x)
 			{
-				//trace ("goodle");
-				MOUNTAINS.x = mntx + 1200;
+				trace ("goodle");
+				mountains.x = mntx;
 				mntcount = 1;
 			}
 		}
@@ -261,8 +261,8 @@ class Game extends Sprite
 			var mnt2x = MOUNTAINS2.x + 1200;
 			if (mnt2x - 25 <= herbert.x && mnt2x + 25 >= herbert.x)
 			{
-				//trace ("GOOOOOOOOOOOOODLE");
-				MOUNTAINS2.x = mnt2x + 1200;
+				trace ("GOOOOOOOOOOOOODLE");
+				mountains2.x = mnt2x;
 				mntcount = 0;
 			}
 		}
