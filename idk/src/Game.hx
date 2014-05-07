@@ -34,6 +34,11 @@ class Game extends Sprite
 	public var PhysicsDebug:Sprite;
 	public var herbert:Herbert;
 	public var mountains:Sprite;
+	public var mountains2:Sprite;
+	public var MOUNTAINS:Bitmap;
+	public var MOUNTAINS2:Bitmap;
+	public var mntbool:Bool;
+	public var mntcount:Int = 0;
 	public var sky:Sprite;
 	public var fence:Sprite;
 	public var fence2:Sprite;
@@ -97,19 +102,34 @@ class Game extends Sprite
 		else
 		counter++;
 		};*/
+		sky = new Sprite();
+		var SKY = new Bitmap(Assets.getBitmapData("img/sky.png"));
+		sky.addChild(SKY);
+		this.addChild(sky);
+		//sky.x = 340;
+		//sky.y = -105;
 		
-		henchman = new Henchmen(500, 0, 100, 150, false);
-		this.addChild(henchman);
+		mountains = new Sprite();
+		mountains2 = new Sprite();
+		MOUNTAINS = new Bitmap(Assets.getBitmapData("img/mountains.png"));
+		MOUNTAINS2 = new Bitmap(Assets.getBitmapData("img/mountains.png"));
+		mountains.addChild(MOUNTAINS);
+		mountains2.addChild(MOUNTAINS2);
+		this.addChild(mountains);
+		this.addChild(mountains2);
+		MOUNTAINS.x = 0;
+		MOUNTAINS2.x = 1200;
+		mountains.y = 10;
+		mountains2.y = 10;
+		mntbool = false;
+		
+		//henchman = new Henchmen(500, 0, 100, 150, false);
+		//this.addChild(henchman);
 		henchman.destroy();
 		this.removeChild(henchman);
 		platform = new Platform();
 		platform.generate(0, 250, 1500, 10, false);
 		this.addChild(platform);
-		
-		sky = new Sprite();
-		var SKY = new Bitmap(Assets.getBitmapData("img/sky.png"));
-		sky.addChild(SKY);
-		//this.addChild(sky);
 		
 		/*mountains = new Sprite();
 		var MOUNTAINS = new Bitmap(Assets.getBitmapData("img/mountains.png"));
@@ -140,10 +160,13 @@ class Game extends Sprite
 		this.addChild(herbert);
 		sheepprev = herbert.x;
 		
+		sky.x = herbert.x;
+		sky.y = herbert.y - 400;
 		sound = Assets.getSound("audio/bongos.mp3");
 		myChannel = sound.play(0, 100);
 		transfor = new SoundTransform();
 		transfor.volume = 2.0;
+		
 		
 		Lib.current.stage.addEventListener(MouseEvent.MOUSE_DOWN, herbert.fire);
 		
@@ -187,6 +210,8 @@ class Game extends Sprite
 	public function act()
 	{
 		World.step(1 / Lib.current.stage.frameRate, 10, 10);
+		//trace("X: " + mouseX);
+		//trace("Y: " + mouseY);
 		//sky.x = herbert.x;
 		//sky.y = herbert.y;
 		//World.destroyBody(B2Body(platform(body)));
@@ -201,40 +226,66 @@ class Game extends Sprite
 		if (countup == true) powercount++;
 		else powercount--;
 		herbert.act();
-		henchman.act();
 		//platform.act(herbert.x);
 		platform.generate(herbert.x, 250, 2000, 10, false);
 		this.addChild(platform);
 		//platform.y = platform.y - 7;
 		
-		trace (herbert.y);
+		//trace (herbert.y);
 		if (fencecount == 0)
 		{
 			//trace ("goodle");
-			var fencex = fence.x + 1600;
+			var fencex = fence.x + 1650;
 			if (fencex - 25 <= herbert.x && fencex + 25 >= herbert.x)
 			{
 				//trace ("goodle");
-				fence.x = fencex + 1600;
+				fence.x = (fencex - 50) + 1600;
 				fencecount = 1;
 			}
 		}
 		if (fencecount == 1)
 		{
 			
-			var fence2x = fence2.x + 1600;
+			var fence2x = fence2.x + 1650;
 			if (fence2x - 25 <= herbert.x && fence2x + 25 >= herbert.x)
 			{
 				//trace ("GOOOOOOOOOOOOODLE");
-				fence2.x = fence2x + 1600;
+				fence2.x = (fence2x - 50) + 1600;
 				fencecount = 0;
 			}
 		}
 		
+		if (mntcount == 0)
+		{
+			//trace ("goodle");
+			var mntx = MOUNTAINS.x + 1200;
+			if (mntx - 25 <= herbert.x && mntx + 25 >= herbert.x)
+			{
+				trace ("goodle");
+				mountains.x = mntx;
+				mntcount = 1;
+			}
+		}
+		if (mntcount == 1)
+		{
+			
+			var mnt2x = MOUNTAINS2.x + 1200;
+			if (mnt2x - 25 <= herbert.x && mnt2x + 25 >= herbert.x)
+			{
+				trace ("GOOOOOOOOOOOOODLE");
+				mountains2.x = mnt2x;
+				mntcount = 0;
+			}
+		}
 		
+		sky.x = herbert.x * .99;
+		sky.y = herbert.y - 400 * .99;
+		
+		mountains.x = herbert.x * .91;
+		mountains2.x = herbert.x * .91;
 		
 		//World.step(1 / Lib.current.stage.frameRate, 10, 10);
-		World.drawDebugData();
+		//World.drawDebugData();
 		World.clearForces();
 	}
 	
