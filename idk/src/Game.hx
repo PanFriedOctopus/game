@@ -1,5 +1,6 @@
 package ;
 
+import flash.media.SoundTransform;
 import haxe.rtti.CType.Platforms;
 import haxe.Timer;
 import Math;
@@ -8,6 +9,9 @@ import flash.events.MouseEvent;
 import flash.display.Bitmap;
 import flash.display.BitmapData;
 import flash.display.Sprite;
+import flash.media.SoundChannel;
+import flash.media.Sound;
+import flash.media.SoundTransform;
 import openfl.Assets;
 import flash.Lib;
 import box2D.collision.shapes.B2CircleShape;
@@ -51,6 +55,9 @@ class Game extends Sprite
 	public var henchman:Henchmen;
 	public var rand:Float;
 	var counter:Int = 0;
+	var myChannel:SoundChannel;
+	var sound:Sound;
+	var transfor:SoundTransform;
 	
 	
 	
@@ -58,6 +65,7 @@ class Game extends Sprite
 	{
 		super();
 		game = this;
+		
 		PhysicsDebug = new Sprite ();
 		addChild (PhysicsDebug);
 		World = new B2World(new B2Vec2 (0, 10.0), true);
@@ -118,6 +126,8 @@ class Game extends Sprite
 		
 		//henchman = new Henchmen(500, 0, 100, 150, false);
 		//this.addChild(henchman);
+		henchman.destroy();
+		this.removeChild(henchman);
 		platform = new Platform();
 		platform.generate(0, 250, 1500, 10, false);
 		this.addChild(platform);
@@ -153,7 +163,10 @@ class Game extends Sprite
 		
 		sky.x = herbert.x;
 		sky.y = herbert.y - 400;
-		
+		sound = Assets.getSound("audio/bongos.mp3");
+		myChannel = sound.play(0, 100);
+		transfor = new SoundTransform();
+		transfor.volume = 2.0;
 		
 		
 		Lib.current.stage.addEventListener(MouseEvent.MOUSE_DOWN, herbert.fire);
@@ -214,7 +227,6 @@ class Game extends Sprite
 		if (countup == true) powercount++;
 		else powercount--;
 		herbert.act();
-		//henchman.act();
 		//platform.act(herbert.x);
 		platform.generate(herbert.x, 250, 2000, 10, false);
 		this.addChild(platform);
