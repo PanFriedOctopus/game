@@ -27,7 +27,7 @@ class Main extends Sprite
 {
 	var inited:Bool;
 	var game:Game;
-	var mainmenu:Sprite;
+	var mainmenu:Menu;
 	var playbutton:Sprite;
 	var playyet:Bool = false;
 
@@ -44,22 +44,23 @@ class Main extends Sprite
 		if (inited) return;
 		inited = true;
 		
-		mainmenu = new Sprite();
-		var menu = new Bitmap(Assets.getBitmapData("img/menu.png"));
-		mainmenu.addChild(menu);
+		//mainmenu = new Sprite();
+		//var menu = new Bitmap(Assets.getBitmapData("img/menu.png"));
+		//mainmenu.addChild(menu);
 		
-		playbutton = new Sprite();
-		var playButton = new Bitmap(Assets.getBitmapData("img/playbutton.png"));
-		playbutton.addChild(playButton);
-		playbutton.x = 450;
-		playbutton.y = 350;
-		mainmenu.addChild(playbutton);
+		//playbutton = new Sprite();
+		//var playButton = new Bitmap(Assets.getBitmapData("img/playbutton.png"));
+		//playbutton.addChild(playButton);
+		//playbutton.x = 450;
+		//playbutton.y = 350;
+		//mainmenu.addChild(playbutton);
 		
-		//this.addChild(mainmenu);
-		this.y = 300;
+		mainmenu = new Menu();
+		this.addChild(mainmenu);
+		//this.y = 300;
 		
-		game = new Game();
-		this.addChild(game);
+		//game = new Game();
+		//this.addChild(game);
 
 		// (your code here)
 		
@@ -73,13 +74,13 @@ class Main extends Sprite
 		//playbutton.addEventListener(MouseEvent.MOUSE_DOWN, playGame);
 	}
 
-	public function playGame(e:MouseEvent) 
+	/*public function playGame(e:MouseEvent) 
 	{
-		//addEventListener (Event.ENTER_FRAME, action);
+		addEventListener (Event.ENTER_FRAME, action);
 		game = new Game();
 		this.addChild(game);
 		playyet = true;
-	}
+	}*/
 	/* SETUP */
 
 	public function new() 
@@ -107,19 +108,21 @@ class Main extends Sprite
 		Lib.current.stage.scaleMode = flash.display.StageScaleMode.NO_SCALE;
 		Lib.current.addChild(new Main());
 	}
+	
 	public function action(e)
 	{
+		/*
 		//removeChild(mainmenu);
-		game.act();
-		//trace (this.x);
-		this.x = -Game.game.herbert.x + 100;
-		//this.y = ( -Game.game.herbert.y + 350) * .999;
-		if (Game.game.herbert.y > -6000)
+		if (playyet = true)
 		{
-			this.y = ( -Game.game.herbert.y + 350) * .999;
+			//game.act();
+			this.x = -Game.game.herbert.x + 75;
+			if (game.herbert.y > -7500)
+			{
+				this.y = -Game.game.herbert.y + 300 * .75;
+			}
 		}
-		this.y = 0;
-		//this.x = 1220;
-		
+		//this.y = 0;
+		*/
 	}
 }

@@ -1,6 +1,5 @@
 package ;
 
-import flash.media.SoundTransform;
 import haxe.rtti.CType.Platforms;
 import haxe.Timer;
 import Math;
