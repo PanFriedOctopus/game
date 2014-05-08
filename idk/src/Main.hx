@@ -113,11 +113,13 @@ class Main extends Sprite
 		game.act();
 		//trace (this.x);
 		this.x = -Game.game.herbert.x + 100;
-		if (game.herbert.y > -7500)
+		//this.y = ( -Game.game.herbert.y + 350) * .999;
+		if (Game.game.herbert.y > -6000)
 		{
-			this.y = -Game.game.herbert.y+480* .75;
+			this.y = ( -Game.game.herbert.y + 350) * .999;
 		}
 		this.y = 0;
+		//this.x = 1220;
 		
 	}
 }
