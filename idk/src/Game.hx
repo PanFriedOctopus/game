@@ -63,6 +63,7 @@ class Game extends Sprite
 	var sound:Sound;
 	var transfor:SoundTransform;
 	public var check:Bool = false;
+	public var playyet:Bool = false;
 	
 	
 	
@@ -187,20 +188,20 @@ class Game extends Sprite
 		
 		sky.x = herbert.x;
 		sky.y = herbert.y - 400;
-		sound = Assets.getSound("audio/bongos.mp3");
-		myChannel = sound.play(0, 100);
-		transfor = new SoundTransform();
-		transfor.volume = 2.0;
-		trace(herbert.x);
-		trace(herbert.y);
+		//sound = Assets.getSound("audio/bongos.mp3");
+		//myChannel = sound.play(0, 100);
+		//transfor = new SoundTransform();
+		//transfor.volume = 2.0;
+		//trace(herbert.x);
+		//trace(herbert.y);
 		resetbutton = new Sprite();
-		trace(resetbutton.x);
+		//trace(resetbutton.x);
 		resetbuttonpicture = new Bitmap(Assets.getBitmapData("img/resetbutton.png"));
 		resetbutton.addChild(resetbuttonpicture);
 		this.addChild(resetbutton);
+		resetbutton.x = this.x + 850;
+		resetbutton.y = this.y - 100;
 		resetbutton.addEventListener(MouseEvent.MOUSE_DOWN, setmenu);
-		resetbutton.x = game.x + 850;
-		resetbutton.y = game.y - 100;
 		
 		herbert.addEventListener(MouseEvent.MOUSE_DOWN, herbert.fire);
 		
@@ -243,7 +244,9 @@ class Game extends Sprite
 	
 	public function act()
 	{
-		World.step(1 / Lib.current.stage.frameRate, 10, 10);
+		if (playyet == true) 
+		{
+		World.step(1 / Lib.current.stage.frameRate, 8, 10);
 		//trace("X: " + mouseX);
 		//trace("Y: " + mouseY);
 		//sky.x = herbert.x;
@@ -260,6 +263,8 @@ class Game extends Sprite
 		if (countup == true) powercount++;
 		else powercount--;
 		herbert.act();
+		resetbutton.x = this.x + 850;
+		resetbutton.y = this.y - 100;
 		//platform.act(herbert.x);
 		platform.generate(herbert.x, 250, 2000, 10, false);
 		this.addChild(platform);
@@ -291,7 +296,7 @@ class Game extends Sprite
 			}
 		}
 		
-		//trace (herbert.x);
+		trace (herbert.x);
 		
 		
 		if (mntbool == true)
@@ -357,6 +362,16 @@ class Game extends Sprite
 		//World.step(1 / Lib.current.stage.frameRate, 10, 10);
 		//World.drawDebugData();
 		World.clearForces();
+		}
+	}
+	
+	public function reset()
+	{
+		herbert.shotsfired = 0;
+		herbert.x = 300;
+		herbert.y = 200;
+		herbert.rotation = 0;
+		//myChannel.stop();
 	}
 	
 	public function setmenu(e)
