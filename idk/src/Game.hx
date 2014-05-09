@@ -57,6 +57,7 @@ class Game extends Sprite
 	var myChannel:SoundChannel;
 	var sound:Sound;
 	var transfor:SoundTransform;
+	public var check:Bool = false;
 	
 	
 	
@@ -117,27 +118,27 @@ class Game extends Sprite
 		mountains2.addChild(MOUNTAINS2);
 		this.addChild(mountains);
 		this.addChild(mountains2);
-		MOUNTAINS.x = 0;
-		MOUNTAINS2.x = 1200;
+		mountains.x = 0;
+		mountains2.x = 1200;
 		mountains.y = 10;
 		mountains2.y = 10;
 		mntbool = false;
 		
-		henchman = new Henchmen(500, 0, 100, 150, false);
-		this.addChild(henchman);
-		henchman.destroy();
-		this.removeChild(henchman);
+		//henchman = new Henchmen(500, 0, 100, 150, false);
+		//this.addChild(henchman);
+		//henchman.destroy();
+		//this.removeChild(henchman);
 		platform = new Platform();
 		platform.generate(0, 250, 1500, 10, false);
 		this.addChild(platform);
-		
-		/*mountains = new Sprite();
+		/*
+		mountains = new Sprite();
 		var MOUNTAINS = new Bitmap(Assets.getBitmapData("img/mountains.png"));
 		mountains.addChild(MOUNTAINS);
 		MOUNTAINS.x = 300;
 		MOUNTAINS.y = 200;
-		this.addChild(mountains);*/
-		
+		this.addChild(mountains);
+		*/
 		fencebool = false;
 		
 		fence = new Sprite();
@@ -257,12 +258,11 @@ class Game extends Sprite
 		
 		if (mntcount == 0)
 		{
-			//trace ("goodle");
 			var mntx = MOUNTAINS.x + 1200;
 			if (mntx - 25 <= herbert.x && mntx + 25 >= herbert.x)
 			{
 				trace ("goodle");
-				mountains.x = mntx;
+				mountains.x = mntx+600;
 				mntcount = 1;
 			}
 		}
@@ -273,16 +273,21 @@ class Game extends Sprite
 			if (mnt2x - 25 <= herbert.x && mnt2x + 25 >= herbert.x)
 			{
 				trace ("GOOOOOOOOOOOOODLE");
-				mountains2.x = mnt2x;
+				mountains2.x = mnt2x +600;
 				mntcount = 0;
 			}
 		}
 		
 		sky.x = herbert.x * .99;
-		sky.y = herbert.y - 400 * .99;
+		//sky.y = herbert.y - 400 * .35;
+		if (herbert.y > -6000)
+		{
+			sky.y = herbert.y  * .99 -480;
+		}
 		
-		mountains.x = herbert.x * .91;
-		mountains2.x = herbert.x * .91;
+		
+		//mountains.x = herbert.x * .91;
+		//mountains2.x = herbert.x * .91;
 		
 		//World.step(1 / Lib.current.stage.frameRate, 10, 10);
 		//World.drawDebugData();
