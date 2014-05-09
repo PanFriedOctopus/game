@@ -27,9 +27,9 @@ class Main extends Sprite
 {
 	var inited:Bool;
 	var game:Game;
-	//var mainmenu:Menu;
+	var mainmenu:Menu;
 	var playbutton:Sprite;
-	var playyet:Bool = true;
+	var playyet:Bool = false;
 
 	/* ENTRY POINT */
 	
@@ -55,18 +55,12 @@ class Main extends Sprite
 		//playbutton.y = 350;
 		//mainmenu.addChild(playbutton);
 		
-		//mainmenu = new Menu();
-		//this.addChild(mainmenu);
-		
-		
-		
-		
-		
-		
+		mainmenu = new Menu();
+		this.addChild(mainmenu);
 		//this.y = 300;
 		
-		game = new Game();
-		this.addChild(game);
+		//game = new Game();
+		//this.addChild(game);
 
 		// (your code here)
 		
@@ -76,7 +70,7 @@ class Main extends Sprite
 		// Assets:
 		// nme.Assets.getBitmapData("img/assetname.jpg");
 		
-		addEventListener (Event.ENTER_FRAME, action);
+		addEventListener (Event.ENTER_FRAME, playgame);
 		//playbutton.addEventListener(MouseEvent.MOUSE_DOWN, playGame);
 	}
 
@@ -119,16 +113,38 @@ class Main extends Sprite
 	{
 		
 		//removeChild(mainmenu);
-		if (playyet = true)
-		{
-			//game.act();
+			game.act();
 			this.x = -Game.game.herbert.x + 75;
-			if (game.herbert.y > -6000)
+			if (game.herbert.y > -7500)
 			{
 				this.y = -Game.game.herbert.y + 300 * .75;
 			}
-		}
 		//this.y = 0;
 		
+	}
+	
+	function playgame(e)
+	{
+		if (mainmenu.check == true)
+		{
+			playyet = true;
+			//trace(mainmenu.check);
+			removeChild(mainmenu);
+			game = new Game();
+			this.addChild(game);
+			addEventListener(Event.ENTER_FRAME, action);
+			mainmenu.check = false;
+		}
+	}
+	
+	function reset()
+	{
+		if (game.check == true)
+		{
+			playyet = false;
+			removeChild(game);
+			this.addChild(mainmenu);
+			
+		}
 	}
 }

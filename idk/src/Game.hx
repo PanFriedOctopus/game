@@ -57,6 +57,7 @@ class Game extends Sprite
 	var myChannel:SoundChannel;
 	var sound:Sound;
 	var transfor:SoundTransform;
+	public var check:Bool = false;
 	
 	
 	
