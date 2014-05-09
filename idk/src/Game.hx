@@ -45,6 +45,8 @@ class Game extends Sprite
 	public var fencebool:Bool;
 	public var fencecount:Int = 0;
 	public var sheepprev:Float;
+	public var resetbutton:Sprite;
+	public var resetbuttonpicture:Bitmap;
 	public static var game;
 	public static var powercount:Int;
 	var countup:Bool;
@@ -110,6 +112,7 @@ class Game extends Sprite
 		//sky.x = 340;
 		//sky.y = -105;
 		
+		
 		mountains = new Sprite();
 		mountains2 = new Sprite();
 		MOUNTAINS = new Bitmap(Assets.getBitmapData("img/mountains.png"));
@@ -167,9 +170,18 @@ class Game extends Sprite
 		myChannel = sound.play(0, 100);
 		transfor = new SoundTransform();
 		transfor.volume = 2.0;
+		trace(herbert.x);
+		trace(herbert.y);
+		resetbutton = new Sprite();
+		trace(resetbutton.x);
+		resetbuttonpicture = new Bitmap(Assets.getBitmapData("img/resetbutton.png"));
+		resetbutton.addChild(resetbuttonpicture);
+		this.addChild(resetbutton);
+		resetbutton.addEventListener(MouseEvent.MOUSE_DOWN, setmenu);
+		resetbutton.x = game.x + 850;
+		resetbutton.y = game.y - 100;
 		
-		
-		Lib.current.stage.addEventListener(MouseEvent.MOUSE_DOWN, herbert.fire);
+		herbert.addEventListener(MouseEvent.MOUSE_DOWN, herbert.fire);
 		
 	}
 	
@@ -231,10 +243,12 @@ class Game extends Sprite
 		platform.generate(herbert.x, 250, 2000, 10, false);
 		this.addChild(platform);
 		//platform.y = platform.y - 7;
+
 		
 		//trace (herbert.y);
 		if (fencecount == 0)
-		{
+		{		
+			
 			//trace ("goodle");
 			var fencex = fence.x + 1650;
 			if (fencex - 25 <= herbert.x && fencex + 25 >= herbert.x)
@@ -292,6 +306,11 @@ class Game extends Sprite
 		//World.step(1 / Lib.current.stage.frameRate, 10, 10);
 		//World.drawDebugData();
 		World.clearForces();
+	}
+	
+	public function setmenu(e)
+	{
+		check = true;
 	}
 	
 }

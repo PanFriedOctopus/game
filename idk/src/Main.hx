@@ -113,12 +113,12 @@ class Main extends Sprite
 	{
 		
 		//removeChild(mainmenu);
-			game.act();
-			this.x = -Game.game.herbert.x + 75;
-			if (game.herbert.y > -7500)
-			{
-				this.y = -Game.game.herbert.y + 300 * .75;
-			}
+		game.act();
+		this.x = -Game.game.herbert.x + 75;
+		if (game.herbert.y > -7500)
+		{
+			this.y = -Game.game.herbert.y + 400 * .75;
+		}
 		//this.y = 0;
 		
 	}
@@ -144,7 +144,8 @@ class Main extends Sprite
 			playyet = false;
 			removeChild(game);
 			this.addChild(mainmenu);
-			
+			removeEventListener(Event.ENTER_FRAME, action);
+			addChild(mainmenu);
 		}
 	}
 }
