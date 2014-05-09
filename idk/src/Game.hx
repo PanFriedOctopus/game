@@ -37,6 +37,9 @@ class Game extends Sprite
 	public var mountains2:Sprite;
 	public var MOUNTAINS:Bitmap;
 	public var MOUNTAINS2:Bitmap;
+	public var grass:Sprite;
+	public var grass2:Sprite;
+	public var grassbool:Bool;
 	public var mntbool:Bool;
 	public var mntcount:Int = 0;
 	public var sky:Sprite;
@@ -137,6 +140,8 @@ class Game extends Sprite
 		mountains2.y = 10;
 		
 		
+		
+		
 		fencebool = false;
 		
 		fence = new Sprite();
@@ -153,6 +158,23 @@ class Game extends Sprite
 		fence.y = -230;
 		fence2.x = 1600;
 		fence2.y = -230;
+		
+		grassbool = false;
+		
+		grass = new Sprite();
+		grass2 = new Sprite();
+		var GRASS = new Bitmap(Assets.getBitmapData("img/grass.png"));
+		GRASS.width = 482;
+		var GRASS2 = new Bitmap(Assets.getBitmapData("img/grass.png"));
+		GRASS2.width = 482;
+		grass.addChild(GRASS);
+		grass2.addChild(GRASS2);
+		this.addChild(grass);
+		this.addChild(grass2);
+		grass.x = 0;
+		grass.y = 220;
+		grass2.x = 964;
+		grass2.y = 220;
 		
 		
 		herbert = new Herbert(300, 200);
@@ -266,7 +288,7 @@ class Game extends Sprite
 				
 				mountains2.x = mnt2x +1200;
 				mntbool = false;
-				trace (mntbool);
+				//trace (mntbool);
 			}
 		}
 		else if (mntbool == false)
@@ -279,6 +301,32 @@ class Game extends Sprite
 				mntbool = true;
 			}
 		}
+		
+		
+		if (grassbool == true)
+		{
+			
+			var grass2x = grass2.x + 964;
+			if (grass2x - 25 <= herbert.x && grass2x + 25 >= herbert.x)
+			{
+				
+				grass2.x = grass2x +964;
+				grassbool = false;
+				//trace (mntbool);
+			}
+		}
+		else if (grassbool == false)
+		{
+			var grassx = grass.x + 964;
+			//trace ("goodle");
+			if (grassx - 10 <= herbert.x && grassx + 10 >= herbert.x)
+			{
+				
+				grass.x = grassx+ 964;
+				grassbool = true;
+			}
+		}
+		
 		
 		sky.x = herbert.x * .99;
 		//sky.y = herbert.y - 400 * .35;

@@ -42,8 +42,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("img/scorebutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("img/boxsheep.png", __ASSET__img_boxsheep_png);
 		type.set ("img/boxsheep.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		className.set ("img/box.png", __ASSET__img_box_png);
-		type.set ("img/box.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("img/grass.png", __ASSET__img_grass_png);
+		type.set ("img/grass.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("img/sky.png", __ASSET__img_sky_png);
 		type.set ("img/sky.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("img/mountains.png", __ASSET__img_mountains_png);
@@ -56,6 +56,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("img/fence.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("img/menu.png", __ASSET__img_menu_png);
 		type.set ("img/menu.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("img/circlesheep.png", __ASSET__img_circlesheep_png);
+		type.set ("img/circlesheep.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("audio/bongos.mp3", __ASSET__audio_bongos_mp3);
 		type.set ("audio/bongos.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
 		className.set ("audio/bongos.sng", __ASSET__audio_bongos_sng);
@@ -74,8 +76,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("img/scorebutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("img/boxsheep.png", "img/boxsheep.png");
 		type.set ("img/boxsheep.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		path.set ("img/box.png", "img/box.png");
-		type.set ("img/box.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("img/grass.png", "img/grass.png");
+		type.set ("img/grass.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("img/sky.png", "img/sky.png");
 		type.set ("img/sky.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("img/mountains.png", "img/mountains.png");
@@ -88,6 +90,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("img/fence.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("img/menu.png", "img/menu.png");
 		type.set ("img/menu.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("img/circlesheep.png", "img/circlesheep.png");
+		type.set ("img/circlesheep.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("audio/bongos.mp3", "audio/bongos.mp3");
 		type.set ("audio/bongos.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
 		path.set ("audio/bongos.sng", "audio/bongos.sng");
@@ -542,13 +546,14 @@ class DefaultAssetLibrary extends AssetLibrary {
 class __ASSET__img_playbutton_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__img_scorebutton_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__img_boxsheep_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
-class __ASSET__img_box_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__img_grass_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__img_sky_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__img_mountains_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__img_henchman_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__img_mountains_xcf extends flash.utils.ByteArray { }
 class __ASSET__img_fence_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__img_menu_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__img_circlesheep_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__audio_bongos_mp3 extends flash.media.Sound { }
 class __ASSET__audio_bongos_sng extends flash.utils.ByteArray { }
 class __ASSET__audio_bongos_wav extends flash.media.Sound { }
@@ -556,6 +561,7 @@ class __ASSET__audio_cello_wav extends flash.media.Sound { }
 
 
 #elseif html5
+
 
 
 

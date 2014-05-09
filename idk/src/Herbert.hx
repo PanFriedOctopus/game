@@ -33,6 +33,34 @@ class Herbert extends Sprite
 	public var cga:Float = 3;
 	public var shotsfired:Int = 0;
 	
+	private function new(x:Int, y:Int)
+	{
+		super();
+		//radius needs to be 57 pixels
+		var s = new Sprite();
+		var b = new Bitmap(Assets.getBitmapData("img/circlesheep.png"));
+		s.addChild(b);
+		s.x = (-WIDTH / 2) -20;
+		s.y = -WIDTH / 2;
+		this.addChild(s);
+		
+		var bodyDefinition = new B2BodyDef ();
+		bodyDefinition.position.set (x * Game.PHYSICS_SCALE, y * Game.PHYSICS_SCALE);
+		bodyDefinition.type = B2Body.b2_dynamicBody;
+		
+		var circle = new B2CircleShape (57 * Game.PHYSICS_SCALE);
+		var fixtureDefinition = new B2FixtureDef ();
+		fixtureDefinition.shape = circle;
+		fixtureDefinition.restitution = .55;
+		fixtureDefinition.density = 1;
+		fixtureDefinition.friction = 10;
+		
+		body = Game.World.createBody (bodyDefinition);
+		body.createFixture (fixtureDefinition);
+		
+	}
+	
+	/* makes the sheep a square
 	public function new(x:Int, y:Int) 
 	{
 		super();
@@ -61,7 +89,7 @@ class Herbert extends Sprite
 		
 		body = Game.World.createBody(bodyDefinition);
 		body.createFixture (fixtureDefinition);
-	}
+	}*/
 	
 	public function fire(e : MouseEvent)
 	{
@@ -88,6 +116,7 @@ class Herbert extends Sprite
 		this.x = body.getPosition().x / Game.PHYSICS_SCALE;
 		this.y = body.getPosition().y / Game.PHYSICS_SCALE;
 		this.rotation = body.getAngle() * 180 / Math.PI;
+		
 		//var that = this.x;
 		//trace(thing - that);
 		//body.applyForce(new B2Vec2(0, 10 * body.getMass()), body.getPosition());

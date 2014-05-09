@@ -58,7 +58,7 @@ class Platform extends Sprite
 		var fixtureDefinition = new B2FixtureDef ();
 		fixtureDefinition.shape = polygon;
 		fixtureDefinition.density = 1;
-		fixtureDefinition.friction = 1;
+		fixtureDefinition.friction = 10000;
 		
 		body = Game.World.createBody (bodyDefinition);
 		body.createFixture (fixtureDefinition);
