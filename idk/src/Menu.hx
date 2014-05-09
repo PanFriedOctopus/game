@@ -17,7 +17,7 @@ class Menu extends Sprite
 {
 	
 	public var check:Bool = false;
-	var myChannel:SoundChannel;
+	public var myChannel:SoundChannel;
 	var sound:Sound;
 	
 	public function new() 
@@ -42,5 +42,6 @@ class Menu extends Sprite
 	public function setgame(e : MouseEvent)
 	{
 		check = true;
+		myChannel.stop;
 	}
 }

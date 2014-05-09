@@ -56,6 +56,7 @@ class Main extends Sprite
 		//mainmenu.addChild(playbutton);
 		
 		mainmenu = new Menu();
+		game = new Game();
 		this.addChild(mainmenu);
 		//this.y = 300;
 		
@@ -111,41 +112,64 @@ class Main extends Sprite
 	
 	public function action(e)
 	{
-		
+		//trace("caiowfeiofdiowfe");
 		//removeChild(mainmenu);
 		game.act();
-		this.x = -Game.game.herbert.x + 75;
-		if (game.herbert.y > -7500)
+		if (game.playyet == true)
 		{
-			this.y = -Game.game.herbert.y + 400 * .75;
+			this.x = -Game.game.herbert.x + 75;
+			if (game.herbert.y > -7500)
+			{
+				this.y = -Game.game.herbert.y + 400 * .75;
+			}
+			game.resetbutton.x = -this.x + 600;
+			game.resetbutton.y = -this.y;
+			if (this.playyet = false)
+			{
+				mainmenu.myChannel.stop();
+				playyet == true;
+			}
 		}
 		//this.y = 0;
 		
+		if (game.playyet == false)
+		{
+			game.reset();
+			playyet == false;
+		}
 	}
 	
 	function playgame(e)
 	{
 		if (mainmenu.check == true)
 		{
-			playyet = true;
+			game.playyet = true;
 			//trace(mainmenu.check);
 			removeChild(mainmenu);
-			game = new Game();
 			this.addChild(game);
 			addEventListener(Event.ENTER_FRAME, action);
 			mainmenu.check = false;
 		}
-	}
-	
-	function reset()
-	{
+		
 		if (game.check == true)
 		{
-			playyet = false;
+			trace(this.x + " " + this.y + " " + mainmenu.x + " " + mainmenu.y);
+			game.playyet = false;
 			removeChild(game);
 			this.addChild(mainmenu);
 			removeEventListener(Event.ENTER_FRAME, action);
-			addChild(mainmenu);
+			game.check = false;
+			game.x = 0;
+			game.y = 0;
+			mainmenu.x = 0;
+			mainmenu.y = 0;
+			this.x = 0;
+			this.y = 0;
+			//trace(game.x + " " + game.y);
+			//mainmenu.x = this.x + 200;
+			//mainmenu.y = this.y + 100;
 		}
 	}
+	
+	
 }

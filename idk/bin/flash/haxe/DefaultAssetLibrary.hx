@@ -36,24 +36,14 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		#if flash
 		
-		className.set ("img/playbutton.png", __ASSET__img_playbutton_png);
-		type.set ("img/playbutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		className.set ("img/scorebutton.png", __ASSET__img_scorebutton_png);
-		type.set ("img/scorebutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		className.set ("img/boxsheep.png", __ASSET__img_boxsheep_png);
-		type.set ("img/boxsheep.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("img/box.png", __ASSET__img_box_png);
 		type.set ("img/box.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		className.set ("img/sky.png", __ASSET__img_sky_png);
-		type.set ("img/sky.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		className.set ("img/mountains.png", __ASSET__img_mountains_png);
-		type.set ("img/mountains.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		className.set ("img/henchman.png", __ASSET__img_henchman_png);
-		type.set ("img/henchman.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		className.set ("img/mountains.xcf", __ASSET__img_mountains_xcf);
-		type.set ("img/mountains.xcf", Reflect.field (AssetType, "binary".toUpperCase ()));
+		className.set ("img/boxsheep.png", __ASSET__img_boxsheep_png);
+		type.set ("img/boxsheep.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("img/fence.png", __ASSET__img_fence_png);
 		type.set ("img/fence.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("img/henchman.png", __ASSET__img_henchman_png);
+		type.set ("img/henchman.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("img/menu.png", __ASSET__img_menu_png);
 		type.set ("img/menu.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("img/mountains.png", __ASSET__img_mountains_png);
@@ -78,26 +68,26 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		#elseif html5
 		
-		path.set ("img/playbutton.png", "img/playbutton.png");
-		type.set ("img/playbutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		path.set ("img/scorebutton.png", "img/scorebutton.png");
-		type.set ("img/scorebutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		path.set ("img/boxsheep.png", "img/boxsheep.png");
-		type.set ("img/boxsheep.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("img/box.png", "img/box.png");
 		type.set ("img/box.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		path.set ("img/sky.png", "img/sky.png");
-		type.set ("img/sky.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		path.set ("img/mountains.png", "img/mountains.png");
-		type.set ("img/mountains.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		path.set ("img/henchman.png", "img/henchman.png");
-		type.set ("img/henchman.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		path.set ("img/mountains.xcf", "img/mountains.xcf");
-		type.set ("img/mountains.xcf", Reflect.field (AssetType, "binary".toUpperCase ()));
+		path.set ("img/boxsheep.png", "img/boxsheep.png");
+		type.set ("img/boxsheep.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("img/fence.png", "img/fence.png");
 		type.set ("img/fence.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("img/henchman.png", "img/henchman.png");
+		type.set ("img/henchman.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("img/menu.png", "img/menu.png");
 		type.set ("img/menu.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("img/mountains.png", "img/mountains.png");
+		type.set ("img/mountains.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("img/playbutton.png", "img/playbutton.png");
+		type.set ("img/playbutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("img/resetbutton.png", "img/resetbutton.png");
+		type.set ("img/resetbutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("img/scorebutton.png", "img/scorebutton.png");
+		type.set ("img/scorebutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("img/sky.png", "img/sky.png");
+		type.set ("img/sky.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("audio/bongos.mp3", "audio/bongos.mp3");
 		type.set ("audio/bongos.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
 		path.set ("audio/bongos.sng", "audio/bongos.sng");
@@ -106,20 +96,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("audio/bongos.wav", Reflect.field (AssetType, "sound".toUpperCase ()));
 		path.set ("audio/cello.wav", "audio/cello.wav");
 		type.set ("audio/cello.wav", Reflect.field (AssetType, "sound".toUpperCase ()));
-		addExternal("img/box.png", "image", "img/box.png");
-		addExternal("img/boxsheep.png", "image", "img/boxsheep.png");
-		addExternal("img/fence.png", "image", "img/fence.png");
-		addExternal("img/henchman.png", "image", "img/henchman.png");
-		addExternal("img/menu.png", "image", "img/menu.png");
-		addExternal("img/mountains.png", "image", "img/mountains.png");
-		addExternal("img/playbutton.png", "image", "img/playbutton.png");
-		addExternal("img/resetbutton.png", "image", "img/resetbutton.png");
-		addExternal("img/scorebutton.png", "image", "img/scorebutton.png");
-		addExternal("img/sky.png", "image", "img/sky.png");
-		addExternal("audio/bongos.mp3", "music", "audio/bongos.mp3");
-		addExternal("audio/bongos.sng", "text", "audio/bongos.sng");
-		addExternal("audio/bongos.wav", "sound", "audio/bongos.wav");
-		addExternal("audio/cello.wav", "sound", "audio/cello.wav");
 		
 		
 		#else
@@ -563,30 +539,16 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if pixi
 #elseif flash
 
-@:keep class __ASSET__img_box_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep class __ASSET__img_boxsheep_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep class __ASSET__img_fence_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep class __ASSET__img_henchman_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep class __ASSET__img_menu_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep class __ASSET__img_mountains_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep class __ASSET__img_playbutton_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep class __ASSET__img_resetbutton_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep class __ASSET__img_scorebutton_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep class __ASSET__img_sky_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep class __ASSET__audio_bongos_mp3 extends flash.media.Sound { }
-@:keep class __ASSET__audio_bongos_sng extends flash.utils.ByteArray { }
-@:keep class __ASSET__audio_bongos_wav extends flash.media.Sound { }
-@:keep class __ASSET__audio_cello_wav extends flash.media.Sound { }
-class __ASSET__img_playbutton_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
-class __ASSET__img_scorebutton_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
-class __ASSET__img_boxsheep_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__img_box_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
-class __ASSET__img_sky_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
-class __ASSET__img_mountains_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
-class __ASSET__img_henchman_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
-class __ASSET__img_mountains_xcf extends flash.utils.ByteArray { }
+class __ASSET__img_boxsheep_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__img_fence_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__img_henchman_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__img_menu_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__img_mountains_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__img_playbutton_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__img_resetbutton_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__img_scorebutton_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__img_sky_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__audio_bongos_mp3 extends flash.media.Sound { }
 class __ASSET__audio_bongos_sng extends flash.utils.ByteArray { }
 class __ASSET__audio_bongos_wav extends flash.media.Sound { }
