@@ -27,9 +27,9 @@ class Main extends Sprite
 {
 	var inited:Bool;
 	var game:Game;
-	var mainmenu:Menu;
+	//var mainmenu:Menu;
 	var playbutton:Sprite;
-	var playyet:Bool = false;
+	var playyet:Bool = true;
 
 	/* ENTRY POINT */
 	
@@ -55,12 +55,18 @@ class Main extends Sprite
 		//playbutton.y = 350;
 		//mainmenu.addChild(playbutton);
 		
-		mainmenu = new Menu();
-		this.addChild(mainmenu);
+		//mainmenu = new Menu();
+		//this.addChild(mainmenu);
+		
+		
+		
+		
+		
+		
 		//this.y = 300;
 		
-		//game = new Game();
-		//this.addChild(game);
+		game = new Game();
+		this.addChild(game);
 
 		// (your code here)
 		
@@ -111,18 +117,18 @@ class Main extends Sprite
 	
 	public function action(e)
 	{
-		/*
+		
 		//removeChild(mainmenu);
 		if (playyet = true)
 		{
 			//game.act();
 			this.x = -Game.game.herbert.x + 75;
-			if (game.herbert.y > -7500)
+			if (game.herbert.y > -6000)
 			{
 				this.y = -Game.game.herbert.y + 300 * .75;
 			}
 		}
 		//this.y = 0;
-		*/
+		
 	}
 }
