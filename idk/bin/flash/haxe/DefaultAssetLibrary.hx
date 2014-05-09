@@ -22,6 +22,7 @@ import openfl.utils.SystemPath;
 #end
 
 
+@:access(flash.media.Sound)
 class DefaultAssetLibrary extends AssetLibrary {
 	
 	
@@ -36,43 +37,34 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		#if flash
 		
-<<<<<<< HEAD
-		className.set ("img/playbutton.png", __ASSET__img_playbutton_png);
-		type.set ("img/playbutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		className.set ("img/scorebutton.png", __ASSET__img_scorebutton_png);
-		type.set ("img/scorebutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("img/boxsheep.png", __ASSET__img_boxsheep_png);
 		type.set ("img/boxsheep.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		className.set ("img/grass.png", __ASSET__img_grass_png);
-		type.set ("img/grass.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		className.set ("img/sky.png", __ASSET__img_sky_png);
-		type.set ("img/sky.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		className.set ("img/mountains.png", __ASSET__img_mountains_png);
-		type.set ("img/mountains.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		className.set ("img/henchman.png", __ASSET__img_henchman_png);
-		type.set ("img/henchman.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		className.set ("img/mountains.xcf", __ASSET__img_mountains_xcf);
-		type.set ("img/mountains.xcf", Reflect.field (AssetType, "binary".toUpperCase ()));
-=======
-		className.set ("img/box.png", __ASSET__img_box_png);
-		type.set ("img/box.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		className.set ("img/boxsheep.png", __ASSET__img_boxsheep_png);
-		type.set ("img/boxsheep.png", Reflect.field (AssetType, "image".toUpperCase ()));
->>>>>>> 7ef8a028cdca503c49c890cef4b58df5e321509a
+		className.set ("img/circlesheep.png", __ASSET__img_circlesheep_png);
+		type.set ("img/circlesheep.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("img/fence.png", __ASSET__img_fence_png);
 		type.set ("img/fence.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("img/grass.png", __ASSET__img_grass_png);
+		type.set ("img/grass.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("img/henchman.png", __ASSET__img_henchman_png);
 		type.set ("img/henchman.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("img/menu.png", __ASSET__img_menu_png);
 		type.set ("img/menu.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		className.set ("img/circlesheep.png", __ASSET__img_circlesheep_png);
-		type.set ("img/circlesheep.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("img/mountains.png", __ASSET__img_mountains_png);
+		type.set ("img/mountains.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("img/mountains.xcf", __ASSET__img_mountains_xcf);
+		type.set ("img/mountains.xcf", Reflect.field (AssetType, "binary".toUpperCase ()));
+		className.set ("img/playbutton.png", __ASSET__img_playbutton_png);
+		type.set ("img/playbutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("img/resetbutton.png", __ASSET__img_resetbutton_png);
 		type.set ("img/resetbutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("img/scorebutton.png", __ASSET__img_scorebutton_png);
+		type.set ("img/scorebutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("img/sky.png", __ASSET__img_sky_png);
+		type.set ("img/sky.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("audio/bongos.mp3", __ASSET__audio_bongos_mp3);
 		type.set ("audio/bongos.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
 		className.set ("audio/bongos.sng", __ASSET__audio_bongos_sng);
-		type.set ("audio/bongos.sng", Reflect.field (AssetType, "binary".toUpperCase ()));
+		type.set ("audio/bongos.sng", Reflect.field (AssetType, "text".toUpperCase ()));
 		className.set ("audio/bongos.wav", __ASSET__audio_bongos_wav);
 		type.set ("audio/bongos.wav", Reflect.field (AssetType, "sound".toUpperCase ()));
 		className.set ("audio/cello.wav", __ASSET__audio_cello_wav);
@@ -81,60 +73,22 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		#elseif html5
 		
-<<<<<<< HEAD
-		path.set ("img/playbutton.png", "img/playbutton.png");
-		type.set ("img/playbutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		path.set ("img/scorebutton.png", "img/scorebutton.png");
-		type.set ("img/scorebutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		path.set ("img/boxsheep.png", "img/boxsheep.png");
-		type.set ("img/boxsheep.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		path.set ("img/grass.png", "img/grass.png");
-		type.set ("img/grass.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		path.set ("img/sky.png", "img/sky.png");
-		type.set ("img/sky.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		path.set ("img/mountains.png", "img/mountains.png");
-		type.set ("img/mountains.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		path.set ("img/henchman.png", "img/henchman.png");
-		type.set ("img/henchman.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		path.set ("img/mountains.xcf", "img/mountains.xcf");
-		type.set ("img/mountains.xcf", Reflect.field (AssetType, "binary".toUpperCase ()));
-=======
-		path.set ("img/box.png", "img/box.png");
-		type.set ("img/box.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		path.set ("img/boxsheep.png", "img/boxsheep.png");
-		type.set ("img/boxsheep.png", Reflect.field (AssetType, "image".toUpperCase ()));
->>>>>>> 7ef8a028cdca503c49c890cef4b58df5e321509a
-		path.set ("img/fence.png", "img/fence.png");
-		type.set ("img/fence.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		path.set ("img/henchman.png", "img/henchman.png");
-		type.set ("img/henchman.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		path.set ("img/menu.png", "img/menu.png");
-		type.set ("img/menu.png", Reflect.field (AssetType, "image".toUpperCase ()));
-<<<<<<< HEAD
-		path.set ("img/circlesheep.png", "img/circlesheep.png");
-		type.set ("img/circlesheep.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		path.set ("img/resetbutton.png", "img/resetbutton.png");
-		type.set ("img/resetbutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
-=======
-		path.set ("img/mountains.png", "img/mountains.png");
-		type.set ("img/mountains.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		path.set ("img/playbutton.png", "img/playbutton.png");
-		type.set ("img/playbutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		path.set ("img/resetbutton.png", "img/resetbutton.png");
-		type.set ("img/resetbutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		path.set ("img/scorebutton.png", "img/scorebutton.png");
-		type.set ("img/scorebutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		path.set ("img/sky.png", "img/sky.png");
-		type.set ("img/sky.png", Reflect.field (AssetType, "image".toUpperCase ()));
->>>>>>> 7ef8a028cdca503c49c890cef4b58df5e321509a
-		path.set ("audio/bongos.mp3", "audio/bongos.mp3");
-		type.set ("audio/bongos.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
-		path.set ("audio/bongos.sng", "audio/bongos.sng");
-		type.set ("audio/bongos.sng", Reflect.field (AssetType, "binary".toUpperCase ()));
-		path.set ("audio/bongos.wav", "audio/bongos.wav");
-		type.set ("audio/bongos.wav", Reflect.field (AssetType, "sound".toUpperCase ()));
-		path.set ("audio/cello.wav", "audio/cello.wav");
-		type.set ("audio/cello.wav", Reflect.field (AssetType, "sound".toUpperCase ()));
+		addExternal("img/boxsheep.png", "image", "img/boxsheep.png");
+		addExternal("img/circlesheep.png", "image", "img/circlesheep.png");
+		addExternal("img/fence.png", "image", "img/fence.png");
+		addExternal("img/grass.png", "image", "img/grass.png");
+		addExternal("img/henchman.png", "image", "img/henchman.png");
+		addExternal("img/menu.png", "image", "img/menu.png");
+		addExternal("img/mountains.png", "image", "img/mountains.png");
+		addExternal("img/mountains.xcf", "binary", "img/mountains.xcf");
+		addExternal("img/playbutton.png", "image", "img/playbutton.png");
+		addExternal("img/resetbutton.png", "image", "img/resetbutton.png");
+		addExternal("img/scorebutton.png", "image", "img/scorebutton.png");
+		addExternal("img/sky.png", "image", "img/sky.png");
+		addExternal("audio/bongos.mp3", "music", "audio/bongos.mp3");
+		addExternal("audio/bongos.sng", "text", "audio/bongos.sng");
+		addExternal("audio/bongos.wav", "sound", "audio/bongos.wav");
+		addExternal("audio/cello.wav", "sound", "audio/cello.wav");
 		
 		
 		#else
@@ -189,6 +143,20 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#end
 		
 	}
+	
+	
+	#if html5
+	private function addEmbed(id:String, kind:String, value:Dynamic):Void {
+		className.set(id, value);
+		type.set(id, Reflect.field(AssetType, kind.toUpperCase()));
+	}
+	
+	
+	private function addExternal(id:String, kind:String, value:String):Void {
+		path.set(id, value);
+		type.set(id, Reflect.field(AssetType, kind.toUpperCase()));
+	}
+	#end
 	
 	
 	public override function exists (id:String, type:AssetType):Bool {
@@ -256,6 +224,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		return cast (Type.createInstance (className.get (id), []), BitmapData);
 		
+		#elseif openfl_html5
+		
+		return BitmapData.fromImage (ApplicationMain.images.get (path.get (id)));
+		
 		#elseif js
 		
 		return cast (ApplicationMain.loaders.get (path.get (id)).contentLoaderInfo.content, Bitmap).bitmapData;
@@ -278,6 +250,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#elseif flash
 		
 		return cast (Type.createInstance (className.get (id), []), ByteArray);
+		
+		#elseif openfl_html5
+		
+		return null;
 		
 		#elseif js
 		
@@ -341,11 +317,18 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		#if pixi
 		
-		//return null;		
+		return null;
 		
 		#elseif flash
 		
 		return cast (Type.createInstance (className.get (id), []), Sound);
+		
+		#elseif openfl_html5
+		
+		var sound = new Sound ();
+		sound.__buffer = true;
+		sound.load (new URLRequest (path.get (id)));
+		return sound; 
 		
 		#elseif js
 		
@@ -392,6 +375,56 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#else
 		
 		return new Sound (new URLRequest (path.get (id)), null, type.get (id) == MUSIC);
+		
+		#end
+		
+	}
+	
+	
+	public override function getText (id:String):String {
+		
+		#if js
+		
+		var bytes:ByteArray = null;
+		var data = ApplicationMain.urlLoaders.get (path.get (id)).data;
+		
+		if (Std.is (data, String)) {
+			
+			return cast data;
+			
+		} else if (Std.is (data, ByteArray)) {
+			
+			bytes = cast data;
+			
+		} else {
+			
+			bytes = null;
+			
+		}
+
+		if (bytes != null) {
+			
+			bytes.position = 0;
+			return bytes.readUTFBytes (bytes.length);
+			
+		} else {
+			
+			return null;
+		}
+		
+		#else
+		
+		var bytes = getBytes (id);
+		
+		if (bytes == null) {
+			
+			return null;
+			
+		} else {
+			
+			return bytes.readUTFBytes (bytes.length);
+			
+		}
 		
 		#end
 		
@@ -572,42 +605,71 @@ class DefaultAssetLibrary extends AssetLibrary {
 	}
 	
 	
+	public override function loadText (id:String, handler:String -> Void):Void {
+		
+		#if js
+		
+		if (path.exists (id)) {
+			
+			var loader = new URLLoader ();
+			loader.addEventListener (Event.COMPLETE, function (event:Event) {
+				
+				handler (event.currentTarget.data);
+				
+			});
+			loader.load (new URLRequest (path.get (id)));
+			
+		} else {
+			
+			handler (getText (id));
+			
+		}
+		
+		#else
+		
+		var callback = function (bytes:ByteArray):Void {
+			
+			if (bytes == null) {
+				
+				handler (null);
+				
+			} else {
+				
+				handler (bytes.readUTFBytes (bytes.length));
+				
+			}
+			
+		}
+		
+		loadBytes (id, callback);
+		
+		#end
+		
+	}
+	
+	
 }
 
 
 #if pixi
 #elseif flash
 
-<<<<<<< HEAD
-class __ASSET__img_playbutton_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
-class __ASSET__img_scorebutton_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
-class __ASSET__img_boxsheep_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
-class __ASSET__img_grass_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
-class __ASSET__img_sky_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
-class __ASSET__img_mountains_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
-class __ASSET__img_henchman_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
-class __ASSET__img_mountains_xcf extends flash.utils.ByteArray { }
-=======
-class __ASSET__img_box_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
-class __ASSET__img_boxsheep_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
->>>>>>> 7ef8a028cdca503c49c890cef4b58df5e321509a
-class __ASSET__img_fence_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
-class __ASSET__img_henchman_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
-class __ASSET__img_menu_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
-<<<<<<< HEAD
-class __ASSET__img_circlesheep_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
-class __ASSET__img_resetbutton_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
-=======
-class __ASSET__img_mountains_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
-class __ASSET__img_playbutton_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
-class __ASSET__img_resetbutton_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
-class __ASSET__img_scorebutton_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
-class __ASSET__img_sky_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
->>>>>>> 7ef8a028cdca503c49c890cef4b58df5e321509a
-class __ASSET__audio_bongos_mp3 extends flash.media.Sound { }
-class __ASSET__audio_bongos_sng extends flash.utils.ByteArray { }
-class __ASSET__audio_bongos_wav extends flash.media.Sound { }
-class __ASSET__audio_cello_wav extends flash.media.Sound { }
+@:keep class __ASSET__img_boxsheep_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep class __ASSET__img_circlesheep_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep class __ASSET__img_fence_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep class __ASSET__img_grass_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep class __ASSET__img_henchman_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep class __ASSET__img_menu_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep class __ASSET__img_mountains_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep class __ASSET__img_mountains_xcf extends flash.utils.ByteArray { }
+@:keep class __ASSET__img_playbutton_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep class __ASSET__img_resetbutton_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep class __ASSET__img_scorebutton_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep class __ASSET__img_sky_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep class __ASSET__audio_bongos_mp3 extends flash.media.Sound { }
+@:keep class __ASSET__audio_bongos_sng extends flash.utils.ByteArray { }
+@:keep class __ASSET__audio_bongos_wav extends flash.media.Sound { }
+@:keep class __ASSET__audio_cello_wav extends flash.media.Sound { }
 
 
 #elseif html5
