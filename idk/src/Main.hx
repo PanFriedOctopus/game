@@ -115,7 +115,7 @@ class Main extends Sprite
 		//removeChild(mainmenu);
 			game.act();
 			this.x = -Game.game.herbert.x + 75;
-			if (game.herbert.y > -7500)
+			if (game.herbert.y > -6000)
 			{
 				this.y = -Game.game.herbert.y + 300 * .75;
 			}

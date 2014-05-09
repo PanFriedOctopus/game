@@ -75,6 +75,10 @@ class Game extends Sprite
 		debugDraw.setDrawScale (1 / PHYSICS_SCALE);
 		debugDraw.setFlags (B2DebugDraw.e_centerOfMassBit + B2DebugDraw.e_shapeBit+ B2DebugDraw.e_aabbBit );// + B2DebugDraw.e_aabbBit);
 		World.setDebugDraw (debugDraw);
+		
+		platform = new Platform();
+		platform.generate(0, 250, 1500, 10, false);
+		this.addChild(platform);
 
 		/*var enemySpawn:Timer = new haxe.Timer(4500);
 		enemySpawn.run = function():Void
@@ -103,42 +107,36 @@ class Game extends Sprite
 		else
 		counter++;
 		};*/
-		sky = new Sprite();
-		var SKY = new Bitmap(Assets.getBitmapData("img/sky.png"));
-		sky.addChild(SKY);
-		this.addChild(sky);
-		//sky.x = 340;
-		//sky.y = -105;
-		
-		mountains = new Sprite();
-		mountains2 = new Sprite();
-		MOUNTAINS = new Bitmap(Assets.getBitmapData("img/mountains.png"));
-		MOUNTAINS2 = new Bitmap(Assets.getBitmapData("img/mountains.png"));
-		mountains.addChild(MOUNTAINS);
-		mountains2.addChild(MOUNTAINS2);
-		this.addChild(mountains);
-		this.addChild(mountains2);
-		mountains.x = 0;
-		mountains2.x = 1200;
-		mountains.y = 10;
-		mountains2.y = 10;
-		mntbool = false;
 		
 		//henchman = new Henchmen(500, 0, 100, 150, false);
 		//this.addChild(henchman);
 		//henchman.destroy();
 		//this.removeChild(henchman);
-		platform = new Platform();
-		platform.generate(0, 250, 1500, 10, false);
-		this.addChild(platform);
-		/*
+		
+		sky = new Sprite();
+		var SKY = new Bitmap(Assets.getBitmapData("img/sky.png"));
+		sky.addChild(SKY);
+		this.addChild(sky);
+		
+		
+		mntbool = false;
+		
 		mountains = new Sprite();
-		var MOUNTAINS = new Bitmap(Assets.getBitmapData("img/mountains.png"));
+		mountains2 = new Sprite();
+		MOUNTAINS = new Bitmap(Assets.getBitmapData("img/mountains.png"));
+		MOUNTAINS.width = 1200;
+		MOUNTAINS2 = new Bitmap(Assets.getBitmapData("img/mountains.png"));
+		MOUNTAINS2.width = 1200;
 		mountains.addChild(MOUNTAINS);
-		MOUNTAINS.x = 300;
-		MOUNTAINS.y = 200;
+		mountains2.addChild(MOUNTAINS2);
 		this.addChild(mountains);
-		*/
+		this.addChild(mountains2);
+		mountains.x = 0;
+		mountains.y = 10;
+		mountains2.x = 1200;
+		mountains2.y = 10;
+		
+		
 		fencebool = false;
 		
 		fence = new Sprite();
@@ -256,25 +254,29 @@ class Game extends Sprite
 			}
 		}
 		
-		if (mntcount == 0)
-		{
-			var mntx = MOUNTAINS.x + 1200;
-			if (mntx - 25 <= herbert.x && mntx + 25 >= herbert.x)
-			{
-				trace ("goodle");
-				mountains.x = mntx+600;
-				mntcount = 1;
-			}
-		}
-		if (mntcount == 1)
+		//trace (herbert.x);
+		
+		
+		if (mntbool == true)
 		{
 			
-			var mnt2x = MOUNTAINS2.x + 1200;
+			var mnt2x = mountains2.x + 1200;
 			if (mnt2x - 25 <= herbert.x && mnt2x + 25 >= herbert.x)
 			{
-				trace ("GOOOOOOOOOOOOODLE");
-				mountains2.x = mnt2x +600;
-				mntcount = 0;
+				
+				mountains2.x = mnt2x +1200;
+				mntbool = false;
+				trace (mntbool);
+			}
+		}
+		else if (mntbool == false)
+		{
+			var mntx = mountains.x + 1200;
+			//trace ("goodle");
+			if (mntx - 25 <= herbert.x && mntx + 25 >= herbert.x)
+			{
+				mountains.x = mntx+ 1200;
+				mntbool = true;
 			}
 		}
 		
