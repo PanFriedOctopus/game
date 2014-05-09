@@ -70,7 +70,7 @@ class Main extends Sprite
 		// Assets:
 		// nme.Assets.getBitmapData("img/assetname.jpg");
 		
-		addEventListener (Event.ENTER_FRAME, action);
+		addEventListener (Event.ENTER_FRAME, playgame);
 		//playbutton.addEventListener(MouseEvent.MOUSE_DOWN, playGame);
 	}
 
@@ -111,18 +111,40 @@ class Main extends Sprite
 	
 	public function action(e)
 	{
-		/*
+		
 		//removeChild(mainmenu);
-		if (playyet = true)
-		{
-			//game.act();
+			game.act();
 			this.x = -Game.game.herbert.x + 75;
 			if (game.herbert.y > -7500)
 			{
 				this.y = -Game.game.herbert.y + 300 * .75;
 			}
-		}
 		//this.y = 0;
-		*/
+		
+	}
+	
+	function playgame(e)
+	{
+		if (mainmenu.check == true)
+		{
+			playyet = true;
+			//trace(mainmenu.check);
+			removeChild(mainmenu);
+			game = new Game();
+			this.addChild(game);
+			addEventListener(Event.ENTER_FRAME, action);
+			mainmenu.check = false;
+		}
+	}
+	
+	function reset()
+	{
+		if (game.check == true)
+		{
+			playyet = false;
+			removeChild(game);
+			this.addChild(mainmenu);
+			
+		}
 	}
 }

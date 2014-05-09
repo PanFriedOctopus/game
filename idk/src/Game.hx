@@ -123,8 +123,8 @@ class Game extends Sprite
 		mountains2.y = 10;
 		mntbool = false;
 		
-		//henchman = new Henchmen(500, 0, 100, 150, false);
-		//this.addChild(henchman);
+		henchman = new Henchmen(500, 0, 100, 150, false);
+		this.addChild(henchman);
 		henchman.destroy();
 		this.removeChild(henchman);
 		platform = new Platform();

@@ -61,6 +61,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("audio/bongos.sng", Reflect.field (AssetType, "text".toUpperCase ()));
 		className.set ("audio/bongos.wav", __ASSET__audio_bongos_wav);
 		type.set ("audio/bongos.wav", Reflect.field (AssetType, "sound".toUpperCase ()));
+		className.set ("audio/cello.wav", __ASSET__audio_cello_wav);
+		type.set ("audio/cello.wav", Reflect.field (AssetType, "sound".toUpperCase ()));
 		
 		
 		#elseif html5
@@ -77,6 +79,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 		addExternal("audio/bongos.mp3", "music", "audio/bongos.mp3");
 		addExternal("audio/bongos.sng", "text", "audio/bongos.sng");
 		addExternal("audio/bongos.wav", "sound", "audio/bongos.wav");
+		addExternal("audio/cello.wav", "sound", "audio/cello.wav");
 		
 		
 		#else
@@ -654,9 +657,11 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep class __ASSET__audio_bongos_mp3 extends flash.media.Sound { }
 @:keep class __ASSET__audio_bongos_sng extends flash.utils.ByteArray { }
 @:keep class __ASSET__audio_bongos_wav extends flash.media.Sound { }
+@:keep class __ASSET__audio_cello_wav extends flash.media.Sound { }
 
 
 #elseif html5
+
 
 
 
