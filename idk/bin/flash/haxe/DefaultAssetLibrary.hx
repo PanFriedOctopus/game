@@ -58,6 +58,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("img/menu.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("img/circlesheep.png", __ASSET__img_circlesheep_png);
 		type.set ("img/circlesheep.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("img/resetbutton.png", __ASSET__img_resetbutton_png);
+		type.set ("img/resetbutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("audio/bongos.mp3", __ASSET__audio_bongos_mp3);
 		type.set ("audio/bongos.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
 		className.set ("audio/bongos.sng", __ASSET__audio_bongos_sng);
@@ -92,6 +94,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("img/menu.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("img/circlesheep.png", "img/circlesheep.png");
 		type.set ("img/circlesheep.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("img/resetbutton.png", "img/resetbutton.png");
+		type.set ("img/resetbutton.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("audio/bongos.mp3", "audio/bongos.mp3");
 		type.set ("audio/bongos.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
 		path.set ("audio/bongos.sng", "audio/bongos.sng");
@@ -554,6 +558,7 @@ class __ASSET__img_mountains_xcf extends flash.utils.ByteArray { }
 class __ASSET__img_fence_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__img_menu_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__img_circlesheep_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__img_resetbutton_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__audio_bongos_mp3 extends flash.media.Sound { }
 class __ASSET__audio_bongos_sng extends flash.utils.ByteArray { }
 class __ASSET__audio_bongos_wav extends flash.media.Sound { }
@@ -561,6 +566,7 @@ class __ASSET__audio_cello_wav extends flash.media.Sound { }
 
 
 #elseif html5
+
 
 
 
